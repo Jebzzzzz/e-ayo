@@ -1,0 +1,231 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Ayo — Clinic Profile</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'primary': '#FEA38E',
+        'on-primary': '#3B2A26',
+        'primary-deep': '#E8735A',
+        'on-primary-deep': '#3B2A26',
+        'secondary': '#FFDFC3',
+        'on-secondary': '#3B2A26',
+        'tertiary': '#FBA2AB',
+        'on-tertiary': '#3B2A26',
+        'surface': '#F5EBD0',
+        'on-surface': '#3B2A26',
+        'on-surface-variant': '#7A625B',
+        'surface-container-low': '#FAF3E0',
+        'surface-container': '#FFDFC3',
+        'surface-container-high': '#FFF9EE',
+        'outline': '#F3B5A0',
+        'outline-variant': '#E6C9B8',
+        'status-pending-bg': '#FEF3C7',
+        'status-pending-text': '#92400E',
+        'status-confirmed-bg': '#DCFCE7',
+        'status-confirmed-text': '#166534',
+        'status-completed-bg': '#E2E8F0',
+        'status-completed-text': '#334155',
+        'status-cancelled-bg': '#FEE2E2',
+        'status-cancelled-text': '#991B1B',
+      },
+      borderRadius: {
+        'sm': '8px',
+        'DEFAULT': '12px',
+        'md': '16px',
+        'lg': '20px',
+        'xl': '28px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '16px',
+        'gutter-lg': '24px',
+        'gutter-xl': '32px',
+        'section': '32px',
+        'page-margin': '16px',
+      },
+      fontFamily: {
+        'display': ['"Poppins"', 'sans-serif'],
+        'headline': ['"Poppins"', 'sans-serif'],
+        'title': ['"Poppins"', 'sans-serif'],
+        'body': ['"Nunito"', 'sans-serif'],
+        'label': ['"Poppins"', 'sans-serif'],
+        'mono': ['"Source Code Pro"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['36px', { lineHeight: '44px', letterSpacing: '-0.5px', fontWeight: '700' }],
+        'display-lg-mobile': ['28px', { lineHeight: '36px', letterSpacing: '-0.25px', fontWeight: '700' }],
+        'headline-lg': ['32px', { lineHeight: '40px', letterSpacing: '-0.25px', fontWeight: '700' }],
+        'headline-md': ['24px', { lineHeight: '32px', letterSpacing: '0px', fontWeight: '600' }],
+        'headline-sm': ['20px', { lineHeight: '28px', letterSpacing: '0px', fontWeight: '600' }],
+        'title-md': ['18px', { lineHeight: '26px', letterSpacing: '0px', fontWeight: '600' }],
+        'body-lg': ['18px', { lineHeight: '28px', letterSpacing: '0px', fontWeight: '500' }],
+        'body-md': ['16px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '500' }],
+        'label-lg': ['16px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '600' }],
+        'label-md': ['14px', { lineHeight: '20px', letterSpacing: '0.1px', fontWeight: '600' }],
+        'label-sm': ['12px', { lineHeight: '16px', letterSpacing: '0.2px', fontWeight: '600' }],
+        'mono-md': ['15px', { lineHeight: '22px', letterSpacing: '0.25px', fontWeight: '600' }],
+      },
+      transitionDuration: {
+        'state-change': '150ms',
+        'surface-enter': '250ms',
+        'surface-exit': '150ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'ease-out',
+        'surface-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+        'surface-exit': 'cubic-bezier(0.3, 0, 1, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&amp;family=Poppins:wght@500;600;700&amp;family=Source+Code+Pro:wght@600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; }</style>
+</head>
+<body class="bg-surface text-on-surface font-body antialiased">
+  <div class="min-h-[884px] flex flex-col max-w-5xl mx-auto" data-stitch-vh="min-h-[884px]===min-h-screen">
+    <!-- Contextual Top Header -->
+    <header class="sticky top-0 z-30 bg-surface-container-high border-b border-outline px-4 py-2.5 flex items-center justify-between gap-2">
+      <a href="../04-find-clinic/FindAClinic.html" aria-label="Back to Find a Clinic" class="min-h-[48px] min-w-[48px] rounded-full bg-surface-container-low border border-outline inline-flex items-center justify-center text-on-surface hover:bg-secondary">
+        <span class="material-symbols-outlined text-[24px]" aria-hidden="true">arrow_back</span>
+      </a>
+      <span class="font-headline text-title-md text-on-surface" data-design-text-token="title-md">Clinic Profile</span>
+      <a href="tel:0535639100" aria-label="Call clinic" class="min-h-[48px] min-w-[48px] rounded-full bg-surface-container-low border border-outline inline-flex items-center justify-center text-on-surface hover:bg-secondary">
+        <span class="material-symbols-outlined text-[24px]" aria-hidden="true">call</span>
+      </a>
+    </header>
+
+    <main class="flex-1 flex flex-col gap-5 pb-6">
+      <!-- Cover Image & Clinic Header -->
+      <div class="px-4 pt-4">
+        <div class="rounded-xl overflow-hidden border border-outline bg-surface-container-high shadow-sm">
+          <img src="https://lh3.googleusercontent.com/aida/ALJJyrDsddkTqiOd7FnD-oA5pnhqr_yM3eGklzswvnkwPqBIBR-IrQHX2MKqyOnUGgPm-Z5BhnfPestLesnf4f9M8baUoCe_ICrTOy2lclnQLrPKIHRKXm6PPFW_MSg6BjR424w9ZB_gE1CXB72VHVkpe9m3PT6GLYMpTMQOEzDsDlRfubN1FYhwt6hjSAqOmMj_Oy1Taz9guHobywF3OgsVnLwA4VoYEkGKy3Vc1Pa9_2F3iQGzKvnSWheulg" alt="Baybay City Immaculate Conception Hospital exterior" class="w-full h-48 sm:h-64 object-cover">
+          <div class="p-4 flex flex-col gap-2.5">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="px-3 py-1 rounded-full bg-secondary border border-outline font-label text-label-sm text-on-surface" data-design-text-token="label-sm">Public • Level 1 Hospital</span>
+              <span class="px-3 py-1 rounded-full bg-tertiary/40 border border-outline font-label text-label-sm text-on-surface" data-design-text-token="label-sm">Open 24 Hours</span>
+            </div>
+            <h1 class="font-headline text-headline-md text-on-surface" data-design-text-token="headline-md">
+              Baybay City Immaculate Conception Hospital
+            </h1>
+            <p class="font-body text-body-md text-on-surface-variant" data-design-text-token="body-md">
+              National Highway, Brgy. Cogon, Baybay City, Leyte 6521
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hours, Contact & Map Preview -->
+      <section class="px-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="rounded-lg bg-surface-container-high border border-outline p-4 flex flex-col gap-3">
+          <h2 class="font-headline text-title-md text-on-surface" data-design-text-token="title-md">Hours &amp; Contact</h2>
+          <div class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-[22px] text-on-surface mt-0.5" aria-hidden="true">schedule</span>
+            <div>
+              <p class="font-label text-label-md text-on-surface" data-design-text-token="label-md">Emergency &amp; Admissions: Open 24/7</p>
+              <p class="font-body text-body-md text-on-surface-variant" data-design-text-token="body-md">Outpatient Clinic: Mon–Sat, 8:00 AM – 4:00 PM</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-[22px] text-on-surface" aria-hidden="true">call</span>
+            <a href="tel:0535639100" class="font-label text-label-lg text-on-surface underline tabular-nums" data-design-text-token="label-lg">(053) 563-9100</a>
+          </div>
+        </div>
+
+        <div class="rounded-lg bg-surface-container-high border border-outline p-3 flex flex-col gap-2">
+          <img src="https://lh3.googleusercontent.com/aida/ALJJyrBsDYUqshjzkJnaFkvOWsEi0eKiRpkKHaJhXymGWgAxALUDT4cVsaoC0HC2-KDK9dDFM4lpmFknfg6gWfhGZXwmxnTUm0WeH73-XHuj7d9a1LHSX0DV6E0eIs4qTEqtEYXQOVRVA4GeZ7bjh-sYS2zL_IuuSsWjE4A3Uo2KtQX0XOugXGajaPsRPw0UERH4sruMQItQClBjsoYlGt-dpsV-TBuwG8Uz1QYHbr9I1jKOUwBSbvU" alt="Map location of Brgy. Cogon, Baybay City" class="w-full h-32 object-cover rounded-DEFAULT border border-outline-variant">
+          <div class="flex items-center justify-between px-1">
+            <span class="font-body text-body-md text-on-surface-variant" data-design-text-token="body-md">Brgy. Cogon • 1.2 km from City Plaza</span>
+            <span class="font-label text-label-md text-on-surface underline" data-design-text-token="label-md">Directions</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Services & Consultation Fees -->
+      <section class="px-4 flex flex-col gap-3">
+        <h2 class="font-headline text-title-md text-on-surface" data-design-text-token="title-md">Services &amp; Consultation Fees</h2>
+        <div class="rounded-lg bg-surface-container-high border border-outline divide-y divide-outline-variant">
+          <div class="p-4 flex items-center justify-between gap-3">
+            <div>
+              <h3 class="font-headline text-label-lg text-on-surface" data-design-text-token="label-lg">General Outpatient Consultation</h3>
+              <p class="font-body text-body-md text-on-surface-variant" data-design-text-token="body-md">Adult &amp; senior medical check-up</p>
+            </div>
+            <span class="font-headline text-title-md text-on-surface tabular-nums shrink-0" data-design-text-token="title-md">₱150</span>
+          </div>
+          <div class="p-4 flex items-center justify-between gap-3">
+            <div>
+              <h3 class="font-headline text-label-lg text-on-surface" data-design-text-token="label-lg">Pediatric Check-up</h3>
+              <p class="font-body text-body-md text-on-surface-variant" data-design-text-token="body-md">Infant and child consultation</p>
+            </div>
+            <span class="font-headline text-title-md text-on-surface tabular-nums shrink-0" data-design-text-token="title-md">₱200</span>
+          </div>
+          <div class="p-4 flex items-center justify-between gap-3">
+            <div>
+              <h3 class="font-headline text-label-lg text-on-surface" data-design-text-token="label-lg">Complete Blood Count (CBC)</h3>
+              <p class="font-body text-body-md text-on-surface-variant" data-design-text-token="body-md">Results within 2 hours</p>
+            </div>
+            <span class="font-headline text-title-md text-on-surface tabular-nums shrink-0" data-design-text-token="title-md">₱250</span>
+          </div>
+          <div class="p-4 flex items-center justify-between gap-3">
+            <div>
+              <h3 class="font-headline text-label-lg text-on-surface" data-design-text-token="label-lg">Chest X-Ray</h3>
+              <p class="font-body text-body-md text-on-surface-variant" data-design-text-token="body-md">Digital diagnostic imaging</p>
+            </div>
+            <span class="font-headline text-title-md text-on-surface tabular-nums shrink-0" data-design-text-token="title-md">₱450</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Doctors List -->
+      <section class="px-4 flex flex-col gap-3">
+        <h2 class="font-headline text-title-md text-on-surface" data-design-text-token="title-md">Available Doctors</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div class="rounded-lg bg-surface-container-high border border-outline p-4 flex items-center gap-3">
+            <div class="w-12 h-12 rounded-full bg-secondary border border-outline flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined text-[24px] text-on-surface" aria-hidden="true">person</span>
+            </div>
+            <div>
+              <h3 class="font-headline text-label-lg text-on-surface" data-design-text-token="label-lg">Dr. Maria Elena Santos</h3>
+              <p class="font-body text-body-md text-on-surface-variant" data-design-text-token="body-md">Internal Medicine • Mon–Fri</p>
+            </div>
+          </div>
+          <div class="rounded-lg bg-surface-container-high border border-outline p-4 flex items-center gap-3">
+            <div class="w-12 h-12 rounded-full bg-secondary border border-outline flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined text-[24px] text-on-surface" aria-hidden="true">person</span>
+            </div>
+            <div>
+              <h3 class="font-headline text-label-lg text-on-surface" data-design-text-token="label-lg">Dr. Roberto Villanueva</h3>
+              <p class="font-body text-body-md text-on-surface-variant" data-design-text-token="body-md">Family Medicine • Tue–Sat</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Sticky Bottom Book Appointment CTA -->
+    <div class="sticky bottom-0 z-30 bg-surface-container-high border-t border-outline px-4 py-3">
+      <a href="../07-book-appointment/BookAppointment.html" class="min-h-[48px] w-full px-6 py-3.5 rounded-full bg-primary text-on-primary font-label text-label-lg hover:bg-primary-deep transition-colors duration-state-change inline-flex items-center justify-center gap-2 shadow-sm">
+        <span class="material-symbols-outlined text-[20px]" aria-hidden="true">calendar_add_on</span>
+        <span data-design-text-token="label-lg">Book Appointment</span>
+      </a>
+    </div>
+  </div>
+
+
+</body></html>

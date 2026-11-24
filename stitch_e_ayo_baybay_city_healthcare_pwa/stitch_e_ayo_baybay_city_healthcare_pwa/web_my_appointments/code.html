@@ -1,0 +1,246 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Ayo Baybay City — My Appointments</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'primary': '#FEA38E',
+        'on-primary': '#3B2A26',
+        'primary-deep': '#E8735A',
+        'on-primary-deep': '#3B2A26',
+        'secondary': '#FFDFC3',
+        'on-secondary': '#3B2A26',
+        'tertiary': '#FBA2AB',
+        'on-tertiary': '#3B2A26',
+        'surface': '#F5EBD0',
+        'on-surface': '#3B2A26',
+        'on-surface-variant': '#7A625B',
+        'surface-container-low': '#FAF3E0',
+        'surface-container': '#FFDFC3',
+        'surface-container-high': '#FFF9EE',
+        'outline': '#F3B5A0',
+        'outline-variant': '#E6C9B8',
+        'status-pending-bg': '#FEF3C7',
+        'status-pending-text': '#92400E',
+        'status-confirmed-bg': '#DCFCE7',
+        'status-confirmed-text': '#166534',
+        'status-completed-bg': '#E2E8F0',
+        'status-completed-text': '#334155',
+        'status-cancelled-bg': '#FEE2E2',
+        'status-cancelled-text': '#991B1B',
+      },
+      borderRadius: {
+        'sm': '8px',
+        'DEFAULT': '12px',
+        'md': '16px',
+        'lg': '20px',
+        'xl': '28px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '16px',
+        'gutter-lg': '24px',
+        'gutter-xl': '32px',
+        'section': '32px',
+        'page-margin': '16px',
+      },
+      fontFamily: {
+        'display': ['"Poppins"', 'sans-serif'],
+        'headline': ['"Poppins"', 'sans-serif'],
+        'title': ['"Poppins"', 'sans-serif'],
+        'body': ['"Nunito"', 'sans-serif'],
+        'label': ['"Poppins"', 'sans-serif'],
+        'mono': ['"Source Code Pro"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['36px', { lineHeight: '44px', letterSpacing: '-0.5px', fontWeight: '700' }],
+        'display-lg-mobile': ['28px', { lineHeight: '36px', letterSpacing: '-0.25px', fontWeight: '700' }],
+        'headline-lg': ['32px', { lineHeight: '40px', letterSpacing: '-0.25px', fontWeight: '700' }],
+        'headline-md': ['24px', { lineHeight: '32px', letterSpacing: '0px', fontWeight: '600' }],
+        'headline-sm': ['20px', { lineHeight: '28px', letterSpacing: '0px', fontWeight: '600' }],
+        'title-md': ['18px', { lineHeight: '26px', letterSpacing: '0px', fontWeight: '600' }],
+        'body-lg': ['18px', { lineHeight: '28px', letterSpacing: '0px', fontWeight: '500' }],
+        'body-md': ['16px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '500' }],
+        'label-lg': ['16px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '600' }],
+        'label-md': ['14px', { lineHeight: '20px', letterSpacing: '0.1px', fontWeight: '600' }],
+        'label-sm': ['12px', { lineHeight: '16px', letterSpacing: '0.2px', fontWeight: '600' }],
+        'mono-md': ['15px', { lineHeight: '22px', letterSpacing: '0.25px', fontWeight: '600' }],
+      },
+      transitionDuration: {
+        'state-change': '150ms',
+        'surface-enter': '250ms',
+        'surface-exit': '150ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'ease-out',
+        'surface-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+        'surface-exit': 'cubic-bezier(0.3, 0, 1, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&amp;family=Poppins:wght@500;600;700&amp;family=Source+Code+Pro:wght@600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; }</style>
+</head>
+<body class="bg-surface text-on-surface font-body antialiased">
+  <div class="min-h-[1024px] flex flex-col" data-stitch-vh="min-h-[1024px]===min-h-screen">
+    <!-- Desktop Website Top Navigation -->
+    <header class="sticky top-0 z-30 bg-surface-container-high border-b border-outline px-6 py-3">
+      <div class="max-w-7xl mx-auto flex items-center justify-between gap-6">
+        <div class="flex items-center gap-3 shrink-0">
+          <a href="../web-01-home/HomeWeb.html" class="flex items-center gap-2.5">
+            <div class="w-10 h-10 rounded-DEFAULT bg-primary flex items-center justify-center border border-outline">
+              <span class="material-symbols-outlined text-on-primary text-[22px]" aria-hidden="true">health_and_safety</span>
+            </div>
+            <span class="font-headline text-headline-sm text-on-surface" data-design-text-token="headline-sm">E-Ayo</span>
+          </a>
+          <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-secondary border border-outline font-label text-label-sm text-on-surface">
+            <span class="material-symbols-outlined text-[14px]" aria-hidden="true">cloud_done</span>
+            <span data-design-text-token="label-sm">Offline Ready</span>
+          </span>
+        </div>
+
+        <nav aria-label="Primary navigation" class="flex items-center gap-1">
+          <a href="../web-01-home/HomeWeb.html" class="min-h-[48px] px-4 py-2 rounded-full text-on-surface hover:bg-secondary font-label text-label-md inline-flex items-center">
+            <span data-design-text-token="label-md">Home</span>
+          </a>
+          <a href="../web-02-find-clinic/FindAClinicWeb.html" class="min-h-[48px] px-4 py-2 rounded-full text-on-surface hover:bg-secondary font-label text-label-md inline-flex items-center">
+            <span data-design-text-token="label-md">Find a Clinic</span>
+          </a>
+          <a href="../web-04-services/ServicesWeb.html" class="min-h-[48px] px-4 py-2 rounded-full text-on-surface hover:bg-secondary font-label text-label-md inline-flex items-center">
+            <span data-design-text-token="label-md">Services</span>
+          </a>
+          <a href="../web-06-my-appointments/MyAppointmentsWeb.html" aria-current="page" class="min-h-[48px] px-4 py-2 rounded-full bg-primary text-on-primary font-label text-label-md inline-flex items-center">
+            <span data-design-text-token="label-md">My Appointments</span>
+          </a>
+          <a href="../web-07-provider-dashboard/ProviderDashboardWeb.html" class="min-h-[48px] px-4 py-2 rounded-full text-on-surface hover:bg-secondary font-label text-label-md inline-flex items-center">
+            <span data-design-text-token="label-md">Provider Portal</span>
+          </a>
+        </nav>
+
+        <div class="flex items-center gap-3 shrink-0">
+          <a href="../web-08-login-register/LoginRegisterWeb.html" class="min-h-[48px] px-5 py-2.5 rounded-full bg-surface-container-low border border-outline text-on-surface font-label text-label-md hover:bg-secondary inline-flex items-center gap-2">
+            <span class="material-symbols-outlined text-[20px]" aria-hidden="true">person</span>
+            <span data-design-text-token="label-md">Elena M. Reyes</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main class="flex-1 max-w-7xl w-full mx-auto px-6 py-8 flex flex-col gap-6">
+      <div class="flex items-center justify-between gap-4">
+        <h1 class="font-headline text-headline-lg text-on-surface" data-design-text-token="headline-lg">My Appointments</h1>
+        <a href="../web-05-book-appointment/BookAppointmentWeb.html" class="min-h-[48px] px-6 py-3 rounded-full bg-primary text-on-primary font-label text-label-md inline-flex items-center gap-2 shadow-sm">
+          <span class="material-symbols-outlined text-[20px]" aria-hidden="true">add</span>
+          <span data-design-text-token="label-md">Book New Appointment</span>
+        </a>
+      </div>
+
+      <!-- Status Tabs -->
+      <div role="tablist" aria-label="Appointment status filters" class="flex flex-wrap items-center gap-2">
+        <button role="tab" aria-selected="true" class="min-h-[48px] px-5 py-2 rounded-full bg-primary text-on-primary font-label text-label-md">
+          <span data-design-text-token="label-md">Upcoming (2)</span>
+        </button>
+        <button role="tab" aria-selected="false" class="min-h-[48px] px-5 py-2 rounded-full bg-surface-container-high border border-outline text-on-surface font-label text-label-md hover:bg-secondary">
+          <span data-design-text-token="label-md">Pending</span>
+        </button>
+        <button role="tab" aria-selected="false" class="min-h-[48px] px-5 py-2 rounded-full bg-surface-container-high border border-outline text-on-surface font-label text-label-md hover:bg-secondary">
+          <span data-design-text-token="label-md">Confirmed</span>
+        </button>
+        <button role="tab" aria-selected="false" class="min-h-[48px] px-5 py-2 rounded-full bg-surface-container-high border border-outline text-on-surface font-label text-label-md hover:bg-secondary">
+          <span data-design-text-token="label-md">Completed</span>
+        </button>
+        <button role="tab" aria-selected="false" class="min-h-[48px] px-5 py-2 rounded-full bg-surface-container-high border border-outline text-on-surface font-label text-label-md hover:bg-secondary">
+          <span data-design-text-token="label-md">Cancelled</span>
+        </button>
+        <button role="tab" aria-selected="false" class="min-h-[48px] px-5 py-2 rounded-full bg-surface-container-high border border-outline text-on-surface font-label text-label-md hover:bg-secondary">
+          <span data-design-text-token="label-md">History</span>
+        </button>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        <!-- Left 8 Cols: Appointment Cards -->
+        <section class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-5 items-stretch">
+          <article class="h-full rounded-lg bg-surface-container-high border border-outline p-5 flex flex-col justify-between gap-4 shadow-sm">
+            <div class="flex flex-col gap-3">
+              <div class="flex items-center justify-between gap-2">
+                <span class="font-mono text-mono-md text-on-surface-variant tabular-nums" data-design-text-token="mono-md">EAYO-2026-0001</span>
+                <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-status-pending-bg text-status-pending-text font-label text-label-sm" data-design-text-token="label-sm">Pending Confirmation</span>
+              </div>
+              <h2 class="font-headline text-title-md text-on-surface" data-design-text-token="title-md">Baybay City Immaculate Conception Hospital</h2>
+              <p class="font-body text-body-md text-on-surface-variant" data-design-text-token="body-md">General Outpatient Consultation<br>November 25, 2026 • 9:00 AM</p>
+            </div>
+            <footer class="flex items-center gap-3 pt-3 border-t border-outline-variant">
+              <a href="../web-05-book-appointment/BookAppointmentWeb.html" class="flex-1 min-h-[48px] px-4 py-2.5 rounded-full bg-surface-container border border-outline text-on-surface font-label text-label-md inline-flex items-center justify-center">
+                <span data-design-text-token="label-md">Reschedule</span>
+              </a>
+              <button type="button" class="flex-1 min-h-[48px] px-4 py-2.5 rounded-full bg-surface-container-low border border-status-cancelled-text text-status-cancelled-text font-label text-label-md inline-flex items-center justify-center">
+                <span data-design-text-token="label-md">Cancel</span>
+              </button>
+            </footer>
+          </article>
+
+          <article class="h-full rounded-lg bg-surface-container-high border border-outline p-5 flex flex-col justify-between gap-4 shadow-sm">
+            <div class="flex flex-col gap-3">
+              <div class="flex items-center justify-between gap-2">
+                <span class="font-mono text-mono-md text-on-surface-variant tabular-nums" data-design-text-token="mono-md">EAYO-2026-0002</span>
+                <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-status-confirmed-bg text-status-confirmed-text font-label text-label-sm" data-design-text-token="label-sm">Confirmed</span>
+              </div>
+              <h2 class="font-headline text-title-md text-on-surface" data-design-text-token="title-md">Kidzklinika</h2>
+              <p class="font-body text-body-md text-on-surface-variant" data-design-text-token="body-md">Pediatric Check-up • Dr. Liza Tan<br>November 26, 2026 • 10:00 AM</p>
+            </div>
+            <footer class="flex items-center gap-3 pt-3 border-t border-outline-variant">
+              <a href="../web-05-book-appointment/BookAppointmentWeb.html" class="flex-1 min-h-[48px] px-4 py-2.5 rounded-full bg-surface-container border border-outline text-on-surface font-label text-label-md inline-flex items-center justify-center">
+                <span data-design-text-token="label-md">Reschedule</span>
+              </a>
+              <button type="button" class="flex-1 min-h-[48px] px-4 py-2.5 rounded-full bg-surface-container-low border border-status-cancelled-text text-status-cancelled-text font-label text-label-md inline-flex items-center justify-center">
+                <span data-design-text-token="label-md">Cancel</span>
+              </button>
+            </footer>
+          </article>
+        </section>
+
+        <!-- Right 4 Cols: Notifications Panel -->
+        <aside class="lg:col-span-4 rounded-xl bg-secondary border border-outline p-5 flex flex-col gap-3">
+          <div class="flex items-center justify-between gap-2">
+            <h2 class="font-headline text-title-md text-on-surface flex items-center gap-2" data-design-text-token="title-md">
+              <span class="material-symbols-outlined text-[22px]" aria-hidden="true">notifications_active</span>
+              Notifications
+            </h2>
+            <span class="font-label text-label-sm text-on-surface" data-design-text-token="label-sm">2 updates</span>
+          </div>
+          <div class="rounded-DEFAULT bg-surface-container-high border border-outline-variant p-3.5 flex items-start gap-2.5">
+            <span class="material-symbols-outlined text-[20px] text-status-confirmed-text shrink-0 mt-0.5" aria-hidden="true">check_circle</span>
+            <p class="font-body text-body-md text-on-surface" data-design-text-token="body-md">
+              <strong>Your appointment was confirmed</strong> — Kidzklinika approved your visit for Nov 26, 2026 at 10:00 AM.
+            </p>
+          </div>
+          <div class="rounded-DEFAULT bg-surface-container-high border border-outline-variant p-3.5 flex items-start gap-2.5">
+            <span class="material-symbols-outlined text-[20px] text-status-pending-text shrink-0 mt-0.5" aria-hidden="true">schedule</span>
+            <p class="font-body text-body-md text-on-surface" data-design-text-token="body-md">
+              <strong>Request received</strong> — EAYO-2026-0001 is waiting for hospital confirmation.
+            </p>
+          </div>
+        </aside>
+      </div>
+    </main>
+  </div>
+
+
+</body></html>

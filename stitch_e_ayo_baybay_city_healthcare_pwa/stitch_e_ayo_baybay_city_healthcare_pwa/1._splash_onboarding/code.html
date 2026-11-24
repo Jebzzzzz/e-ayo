@@ -1,0 +1,172 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Ayo — Welcome</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'primary': '#FEA38E',
+        'on-primary': '#3B2A26',
+        'primary-deep': '#E8735A',
+        'on-primary-deep': '#3B2A26',
+        'secondary': '#FFDFC3',
+        'on-secondary': '#3B2A26',
+        'tertiary': '#FBA2AB',
+        'on-tertiary': '#3B2A26',
+        'surface': '#F5EBD0',
+        'on-surface': '#3B2A26',
+        'on-surface-variant': '#7A625B',
+        'surface-container-low': '#FAF3E0',
+        'surface-container': '#FFDFC3',
+        'surface-container-high': '#FFF9EE',
+        'outline': '#F3B5A0',
+        'outline-variant': '#E6C9B8',
+        'status-pending-bg': '#FEF3C7',
+        'status-pending-text': '#92400E',
+        'status-confirmed-bg': '#DCFCE7',
+        'status-confirmed-text': '#166534',
+        'status-completed-bg': '#E2E8F0',
+        'status-completed-text': '#334155',
+        'status-cancelled-bg': '#FEE2E2',
+        'status-cancelled-text': '#991B1B',
+      },
+      borderRadius: {
+        'sm': '8px',
+        'DEFAULT': '12px',
+        'md': '16px',
+        'lg': '20px',
+        'xl': '28px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '16px',
+        'gutter-lg': '24px',
+        'gutter-xl': '32px',
+        'section': '32px',
+        'page-margin': '16px',
+      },
+      fontFamily: {
+        'display': ['"Poppins"', 'sans-serif'],
+        'headline': ['"Poppins"', 'sans-serif'],
+        'title': ['"Poppins"', 'sans-serif'],
+        'body': ['"Nunito"', 'sans-serif'],
+        'label': ['"Poppins"', 'sans-serif'],
+        'mono': ['"Source Code Pro"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['36px', { lineHeight: '44px', letterSpacing: '-0.5px', fontWeight: '700' }],
+        'display-lg-mobile': ['28px', { lineHeight: '36px', letterSpacing: '-0.25px', fontWeight: '700' }],
+        'headline-lg': ['32px', { lineHeight: '40px', letterSpacing: '-0.25px', fontWeight: '700' }],
+        'headline-md': ['24px', { lineHeight: '32px', letterSpacing: '0px', fontWeight: '600' }],
+        'headline-sm': ['20px', { lineHeight: '28px', letterSpacing: '0px', fontWeight: '600' }],
+        'title-md': ['18px', { lineHeight: '26px', letterSpacing: '0px', fontWeight: '600' }],
+        'body-lg': ['18px', { lineHeight: '28px', letterSpacing: '0px', fontWeight: '500' }],
+        'body-md': ['16px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '500' }],
+        'label-lg': ['16px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '600' }],
+        'label-md': ['14px', { lineHeight: '20px', letterSpacing: '0.1px', fontWeight: '600' }],
+        'label-sm': ['12px', { lineHeight: '16px', letterSpacing: '0.2px', fontWeight: '600' }],
+        'mono-md': ['15px', { lineHeight: '22px', letterSpacing: '0.25px', fontWeight: '600' }],
+      },
+      transitionDuration: {
+        'state-change': '150ms',
+        'surface-enter': '250ms',
+        'surface-exit': '150ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'ease-out',
+        'surface-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+        'surface-exit': 'cubic-bezier(0.3, 0, 1, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&amp;family=Poppins:wght@500;600;700&amp;family=Source+Code+Pro:wght@600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; }</style>
+</head>
+<body class="bg-surface text-on-surface font-body antialiased">
+  <div class="min-h-[884px] flex flex-col justify-between max-w-md mx-auto px-gutter-md py-gutter-lg" data-stitch-vh="min-h-[884px]===min-h-screen">
+    <!-- Top Brand & Offline Indicator -->
+    <header class="flex items-center justify-between gap-2">
+      <div class="flex items-center gap-2.5">
+        <div class="w-11 h-11 rounded-md bg-primary flex items-center justify-center border border-outline shadow-sm">
+          <span class="material-symbols-outlined text-on-primary text-[26px]" aria-hidden="true">health_and_safety</span>
+        </div>
+        <div>
+          <span class="font-headline text-headline-sm text-on-surface block leading-none" data-design-text-token="headline-sm">E-Ayo</span>
+          <span class="font-body text-label-sm text-on-surface-variant" data-design-text-token="label-sm">Baybay City, Leyte</span>
+        </div>
+      </div>
+      <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-secondary border border-outline font-label text-label-sm text-on-surface">
+        <span class="material-symbols-outlined text-[16px]" aria-hidden="true">cloud_done</span>
+        <span data-design-text-token="label-sm">Offline Ready</span>
+      </span>
+    </header>
+
+    <!-- Onboarding Hero -->
+    <main class="flex-1 flex flex-col justify-center gap-6 py-gutter-lg">
+      <div class="rounded-xl overflow-hidden bg-surface-container-high border border-outline p-3 shadow-sm">
+        <img src="https://lh3.googleusercontent.com/aida/ALJJyrA5tasMQGiMHAi-yj89PsKmrUf0ZPB253qUdCMbAKKkye6tO5agxPMIlqKSXF-di1uV14ZN4jsjreUqP7Ug_LENWaeQPLTgXA0dSo86z_XdxgCv9STCh8X_0lmoLsI17JVsZhal2oo3zyL7jwicfZ-RWtajdxuZ8KgGFttVi7GRZyWvZNeIIeP8v1Bdifh4ROs4RZXMSHpiHarzO-Ri7m4paRO7PAfyA4gEIWYUJj7RxYBg5Bg0B3IvWA" alt="Friendly Baybay City healthcare worker welcoming a local family" class="w-full h-56 object-cover rounded-lg">
+      </div>
+
+      <div class="flex flex-col gap-3 text-center">
+        <span class="inline-flex items-center justify-center gap-1.5 self-center px-3 py-1 rounded-full bg-secondary border border-outline font-label text-label-sm text-on-surface">
+          <span class="material-symbols-outlined text-[16px]" aria-hidden="true">location_on</span>
+          <span data-design-text-token="label-sm">Exclusively for Baybayanons</span>
+        </span>
+        <h1 class="font-display text-display-lg-mobile md:text-display-lg text-on-surface text-balance" data-design-text-token="display-lg-mobile">
+          Your Health, Within Your City.
+        </h1>
+        <p class="font-body text-body-lg text-on-surface-variant text-pretty max-w-prose mx-auto" data-design-text-token="body-lg">
+          Healthcare made easier for every Baybayanon. Find trusted local clinics, hospitals, and health centers in Baybay City and request appointments in minutes.
+        </p>
+      </div>
+
+      <!-- 3 Quick Value Highlights -->
+      <div class="grid grid-cols-3 gap-2.5 text-center">
+        <div class="rounded-DEFAULT bg-surface-container-high border border-outline p-3 flex flex-col items-center gap-1.5">
+          <span class="material-symbols-outlined text-on-surface text-[24px]" aria-hidden="true">local_hospital</span>
+          <span class="font-label text-label-sm text-on-surface" data-design-text-token="label-sm">Local Clinics</span>
+        </div>
+        <div class="rounded-DEFAULT bg-surface-container-high border border-outline p-3 flex flex-col items-center gap-1.5">
+          <span class="material-symbols-outlined text-on-surface text-[24px]" aria-hidden="true">calendar_month</span>
+          <span class="font-label text-label-sm text-on-surface" data-design-text-token="label-sm">Easy Requests</span>
+        </div>
+        <div class="rounded-DEFAULT bg-surface-container-high border border-outline p-3 flex flex-col items-center gap-1.5">
+          <span class="material-symbols-outlined text-on-surface text-[24px]" aria-hidden="true">verified_user</span>
+          <span class="font-label text-label-sm text-on-surface" data-design-text-token="label-sm">Verified Care</span>
+        </div>
+      </div>
+    </main>
+
+    <!-- Primary & Secondary Actions -->
+    <footer class="flex flex-col gap-3">
+      <!-- COMPONENT: button-primary -->
+      <a href="../03-home/Home.html" data-component-id="button-primary" data-component-type="button" data-component-variant="primary" class="min-h-[48px] w-full px-6 py-3.5 rounded-full bg-primary text-on-primary font-label text-label-lg hover:bg-primary-deep transition-colors duration-state-change ease-state-change inline-flex items-center justify-center gap-2 shadow-sm">
+        <span data-design-text-token="label-lg">Get Started</span>
+        <span class="material-symbols-outlined text-[20px]" aria-hidden="true">arrow_forward</span>
+      </a>
+
+      <!-- COMPONENT: button-secondary -->
+      <a href="../02-login-register/LoginRegister.html" data-component-id="button-secondary" data-component-type="button" data-component-variant="secondary" class="min-h-[48px] w-full px-6 py-3.5 rounded-full bg-surface-container-high border border-outline text-on-surface font-label text-label-lg hover:bg-secondary transition-colors duration-state-change ease-state-change inline-flex items-center justify-center gap-2">
+        <span data-design-text-token="label-lg">Log In or Register</span>
+      </a>
+    </footer>
+  </div>
+
+
+</body></html>

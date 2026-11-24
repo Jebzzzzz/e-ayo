@@ -1,0 +1,245 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Ayo — Login or Register</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'primary': '#FEA38E',
+        'on-primary': '#3B2A26',
+        'primary-deep': '#E8735A',
+        'on-primary-deep': '#3B2A26',
+        'secondary': '#FFDFC3',
+        'on-secondary': '#3B2A26',
+        'tertiary': '#FBA2AB',
+        'on-tertiary': '#3B2A26',
+        'surface': '#F5EBD0',
+        'on-surface': '#3B2A26',
+        'on-surface-variant': '#7A625B',
+        'surface-container-low': '#FAF3E0',
+        'surface-container': '#FFDFC3',
+        'surface-container-high': '#FFF9EE',
+        'outline': '#F3B5A0',
+        'outline-variant': '#E6C9B8',
+        'status-pending-bg': '#FEF3C7',
+        'status-pending-text': '#92400E',
+        'status-confirmed-bg': '#DCFCE7',
+        'status-confirmed-text': '#166534',
+        'status-completed-bg': '#E2E8F0',
+        'status-completed-text': '#334155',
+        'status-cancelled-bg': '#FEE2E2',
+        'status-cancelled-text': '#991B1B',
+      },
+      borderRadius: {
+        'sm': '8px',
+        'DEFAULT': '12px',
+        'md': '16px',
+        'lg': '20px',
+        'xl': '28px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '16px',
+        'gutter-lg': '24px',
+        'gutter-xl': '32px',
+        'section': '32px',
+        'page-margin': '16px',
+      },
+      fontFamily: {
+        'display': ['"Poppins"', 'sans-serif'],
+        'headline': ['"Poppins"', 'sans-serif'],
+        'title': ['"Poppins"', 'sans-serif'],
+        'body': ['"Nunito"', 'sans-serif'],
+        'label': ['"Poppins"', 'sans-serif'],
+        'mono': ['"Source Code Pro"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['36px', { lineHeight: '44px', letterSpacing: '-0.5px', fontWeight: '700' }],
+        'display-lg-mobile': ['28px', { lineHeight: '36px', letterSpacing: '-0.25px', fontWeight: '700' }],
+        'headline-lg': ['32px', { lineHeight: '40px', letterSpacing: '-0.25px', fontWeight: '700' }],
+        'headline-md': ['24px', { lineHeight: '32px', letterSpacing: '0px', fontWeight: '600' }],
+        'headline-sm': ['20px', { lineHeight: '28px', letterSpacing: '0px', fontWeight: '600' }],
+        'title-md': ['18px', { lineHeight: '26px', letterSpacing: '0px', fontWeight: '600' }],
+        'body-lg': ['18px', { lineHeight: '28px', letterSpacing: '0px', fontWeight: '500' }],
+        'body-md': ['16px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '500' }],
+        'label-lg': ['16px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '600' }],
+        'label-md': ['14px', { lineHeight: '20px', letterSpacing: '0.1px', fontWeight: '600' }],
+        'label-sm': ['12px', { lineHeight: '16px', letterSpacing: '0.2px', fontWeight: '600' }],
+        'mono-md': ['15px', { lineHeight: '22px', letterSpacing: '0.25px', fontWeight: '600' }],
+      },
+      transitionDuration: {
+        'state-change': '150ms',
+        'surface-enter': '250ms',
+        'surface-exit': '150ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'ease-out',
+        'surface-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+        'surface-exit': 'cubic-bezier(0.3, 0, 1, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&amp;family=Poppins:wght@500;600;700&amp;family=Source+Code+Pro:wght@600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; }</style>
+</head>
+<body class="bg-surface text-on-surface font-body antialiased">
+  <div class="min-h-[884px] flex flex-col max-w-md mx-auto px-gutter-md py-gutter-lg gap-6" data-stitch-vh="min-h-[884px]===min-h-screen">
+    <!-- Top Header -->
+    <header class="flex items-center justify-between gap-3">
+      <a href="../01-splash-onboarding/SplashOnboarding.html" aria-label="Back to Welcome" class="min-h-[48px] min-w-[48px] rounded-full bg-surface-container-high border border-outline inline-flex items-center justify-center text-on-surface hover:bg-secondary">
+        <span class="material-symbols-outlined text-[24px]" aria-hidden="true">arrow_back</span>
+      </a>
+      <div class="flex items-center gap-2">
+        <div class="w-9 h-9 rounded-DEFAULT bg-primary flex items-center justify-center border border-outline">
+          <span class="material-symbols-outlined text-on-primary text-[20px]" aria-hidden="true">health_and_safety</span>
+        </div>
+        <span class="font-headline text-title-md text-on-surface" data-design-text-token="title-md">E-Ayo</span>
+      </div>
+      <div class="w-12" aria-hidden="true"></div>
+    </header>
+
+    <main class="flex-1 flex flex-col gap-5">
+      <div class="flex flex-col gap-1.5">
+        <h1 class="font-headline text-headline-md text-on-surface" data-design-text-token="headline-md">Welcome to E-Ayo</h1>
+        <p class="font-body text-body-md text-on-surface-variant text-balance" data-design-text-token="body-md">Choose your account type to continue in Baybay City.</p>
+      </div>
+
+      <!-- Account Type Toggle -->
+      <div data-component-id="tabs-horizontal" data-component-type="tabs" data-component-variant="horizontal">
+        <div role="tablist" aria-label="Account type" class="flex p-1 rounded-full bg-surface-container border border-outline gap-1">
+          <button role="tab" id="tab-patient" aria-selected="true" aria-controls="panel-patient" tabindex="0" onclick="switchRole(&#39;patient&#39;)" class="flex-1 min-h-[48px] px-3 py-2 rounded-full bg-primary text-on-primary font-label text-label-md transition-colors duration-state-change ease-state-change">
+            <span data-design-text-token="label-md">Patient</span>
+          </button>
+          <button role="tab" id="tab-provider" aria-selected="false" aria-controls="panel-provider" tabindex="-1" onclick="switchRole(&#39;provider&#39;)" class="flex-1 min-h-[48px] px-3 py-2 rounded-full text-on-surface hover:bg-surface-container-high font-label text-label-md transition-colors duration-state-change ease-state-change">
+            <span data-design-text-token="label-md">Healthcare Provider</span>
+          </button>
+        </div>
+
+        <!-- Patient Panel -->
+        <div role="tabpanel" id="panel-patient" aria-labelledby="tab-patient" tabindex="0" class="mt-5 rounded-lg bg-surface-container-high border border-outline p-5 flex flex-col gap-4 shadow-sm">
+          <div class="flex items-center justify-between gap-2 pb-3 border-b border-outline-variant">
+            <div>
+              <h2 class="font-headline text-title-md text-on-surface" data-design-text-token="title-md">Patient Account</h2>
+              <p class="font-body text-body-md text-on-surface-variant" data-design-text-token="body-md">Book visits and track your schedules</p>
+            </div>
+            <span class="material-symbols-outlined text-[28px] text-on-surface" aria-hidden="true">person</span>
+          </div>
+
+          <label data-component-id="input-field-text" data-component-type="input-field" data-component-variant="text" class="flex flex-col gap-1.5">
+            <span class="font-label text-label-md text-on-surface" data-design-text-token="label-md">Mobile Number or Email</span>
+            <input type="text" placeholder="0917 123 4567" class="min-h-[48px] w-full rounded-DEFAULT bg-surface-container-low border border-outline px-4 py-3 font-body text-body-md text-on-surface placeholder:text-on-surface-variant focus:border-on-surface focus:ring-2 focus:ring-primary/50 focus:outline-none">
+          </label>
+
+          <label class="flex flex-col gap-1.5">
+            <span class="font-label text-label-md text-on-surface" data-design-text-token="label-md">Barangay in Baybay City</span>
+            <select class="min-h-[48px] w-full rounded-DEFAULT bg-surface-container-low border border-outline px-4 py-3 font-body text-body-md text-on-surface focus:border-on-surface focus:ring-2 focus:ring-primary/50 focus:outline-none">
+              <option>Brgy. Cogon</option>
+              <option>Brgy. Poblacion</option>
+              <option>Brgy. Galenzoga</option>
+              <option>Brgy. Guadalupe</option>
+              <option>Brgy. Pangasugan</option>
+            </select>
+          </label>
+
+          <label class="flex flex-col gap-1.5">
+            <span class="font-label text-label-md text-on-surface" data-design-text-token="label-md">Password</span>
+            <input type="password" placeholder="Enter your password" autocomplete="current-password" class="min-h-[48px] w-full rounded-DEFAULT bg-surface-container-low border border-outline px-4 py-3 font-body text-body-md text-on-surface placeholder:text-on-surface-variant focus:border-on-surface focus:ring-2 focus:ring-primary/50 focus:outline-none">
+          </label>
+
+          <a href="../03-home/Home.html" class="min-h-[48px] w-full px-6 py-3 rounded-full bg-primary text-on-primary font-label text-label-lg hover:bg-primary-deep transition-colors duration-state-change ease-state-change inline-flex items-center justify-center gap-2 shadow-sm">
+            <span data-design-text-token="label-lg">Log In as Patient</span>
+          </a>
+
+          <button type="button" class="min-h-[48px] w-full px-6 py-3 rounded-full bg-secondary border border-outline text-on-surface font-label text-label-lg hover:bg-primary/40 transition-colors duration-state-change ease-state-change inline-flex items-center justify-center gap-2">
+            <span data-design-text-token="label-lg">Create Patient Account</span>
+          </button>
+        </div>
+
+        <!-- Healthcare Provider Panel -->
+        <div role="tabpanel" id="panel-provider" aria-labelledby="tab-provider" tabindex="0" hidden class="mt-5 rounded-lg bg-surface-container-high border border-outline p-5 flex flex-col gap-4 shadow-sm">
+          <div class="flex items-center justify-between gap-2 pb-3 border-b border-outline-variant">
+            <div>
+              <h2 class="font-headline text-title-md text-on-surface" data-design-text-token="title-md">Healthcare Provider</h2>
+              <p class="font-body text-body-md text-on-surface-variant" data-design-text-token="body-md">Register your clinic or manage requests</p>
+            </div>
+            <span class="material-symbols-outlined text-[28px] text-on-surface" aria-hidden="true">local_hospital</span>
+          </div>
+
+          <label class="flex flex-col gap-1.5">
+            <span class="font-label text-label-md text-on-surface" data-design-text-token="label-md">Facility / Clinic Name</span>
+            <input type="text" placeholder="e.g., Baybay Family Care Clinic" class="min-h-[48px] w-full rounded-DEFAULT bg-surface-container-low border border-outline px-4 py-3 font-body text-body-md text-on-surface placeholder:text-on-surface-variant focus:border-on-surface focus:ring-2 focus:ring-primary/50 focus:outline-none">
+          </label>
+
+          <label class="flex flex-col gap-1.5">
+            <span class="font-label text-label-md text-on-surface" data-design-text-token="label-md">Facility Type</span>
+            <select class="min-h-[48px] w-full rounded-DEFAULT bg-surface-container-low border border-outline px-4 py-3 font-body text-body-md text-on-surface focus:border-on-surface focus:ring-2 focus:ring-primary/50 focus:outline-none">
+              <option>Private Clinic</option>
+              <option>Public Hospital / Health Center</option>
+              <option>Diagnostic &amp; Dialysis Center</option>
+              <option>Maternity &amp; Lying-In</option>
+            </select>
+          </label>
+
+          <label class="flex flex-col gap-1.5">
+            <span class="font-label text-label-md text-on-surface" data-design-text-token="label-md">Clinic Contact Email</span>
+            <input type="email" placeholder="admin@baybayclinic.ph" class="min-h-[48px] w-full rounded-DEFAULT bg-surface-container-low border border-outline px-4 py-3 font-body text-body-md text-on-surface placeholder:text-on-surface-variant focus:border-on-surface focus:ring-2 focus:ring-primary/50 focus:outline-none">
+          </label>
+
+          <a href="../10-provider-dashboard/ProviderDashboard.html" class="min-h-[48px] w-full px-6 py-3 rounded-full bg-primary text-on-primary font-label text-label-lg hover:bg-primary-deep transition-colors duration-state-change ease-state-change inline-flex items-center justify-center gap-2 shadow-sm">
+            <span data-design-text-token="label-lg">Open Provider Dashboard</span>
+          </a>
+
+          <button type="button" class="min-h-[48px] w-full px-6 py-3 rounded-full bg-secondary border border-outline text-on-surface font-label text-label-lg hover:bg-primary/40 transition-colors duration-state-change ease-state-change inline-flex items-center justify-center gap-2">
+            <span data-design-text-token="label-lg">Register a New Clinic</span>
+          </button>
+        </div>
+      </div>
+
+      <p class="font-body text-body-md text-on-surface-variant text-center" data-design-text-token="body-md">
+        Need help? <a href="../11-about-us/AboutUs.html" class="font-label underline text-on-surface">Learn about E-Ayo Baybay City</a>
+      </p>
+    </main>
+  </div>
+
+  <script>
+    function switchRole(role) {
+      const pTab = document.getElementById('tab-patient');
+      const prTab = document.getElementById('tab-provider');
+      const pPanel = document.getElementById('panel-patient');
+      const prPanel = document.getElementById('panel-provider');
+      if (role === 'patient') {
+        pTab.setAttribute('aria-selected', 'true');
+        pTab.className = 'flex-1 min-h-[48px] px-3 py-2 rounded-full bg-primary text-on-primary font-label text-label-md transition-colors duration-state-change ease-state-change';
+        prTab.setAttribute('aria-selected', 'false');
+        prTab.className = 'flex-1 min-h-[48px] px-3 py-2 rounded-full text-on-surface-variant hover:text-on-surface font-label text-label-md transition-colors duration-state-change ease-state-change';
+        pPanel.hidden = false;
+        prPanel.hidden = true;
+      } else {
+        prTab.setAttribute('aria-selected', 'true');
+        prTab.className = 'flex-1 min-h-[48px] px-3 py-2 rounded-full bg-primary text-on-primary font-label text-label-md transition-colors duration-state-change ease-state-change';
+        pTab.setAttribute('aria-selected', 'false');
+        pTab.className = 'flex-1 min-h-[48px] px-3 py-2 rounded-full text-on-surface-variant hover:text-on-surface font-label text-label-md transition-colors duration-state-change ease-state-change';
+        prPanel.hidden = false;
+        pPanel.hidden = true;
+      }
+    }
+  </script>
+
+
+</body></html>

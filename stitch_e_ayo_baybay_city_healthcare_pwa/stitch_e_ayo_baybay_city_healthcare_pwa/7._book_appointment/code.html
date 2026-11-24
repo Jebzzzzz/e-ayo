@@ -1,0 +1,341 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Ayo — Book Appointment</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'primary': '#FEA38E',
+        'on-primary': '#3B2A26',
+        'primary-deep': '#E8735A',
+        'on-primary-deep': '#3B2A26',
+        'secondary': '#FFDFC3',
+        'on-secondary': '#3B2A26',
+        'tertiary': '#FBA2AB',
+        'on-tertiary': '#3B2A26',
+        'surface': '#F5EBD0',
+        'on-surface': '#3B2A26',
+        'on-surface-variant': '#7A625B',
+        'surface-container-low': '#FAF3E0',
+        'surface-container': '#FFDFC3',
+        'surface-container-high': '#FFF9EE',
+        'outline': '#F3B5A0',
+        'outline-variant': '#E6C9B8',
+        'status-pending-bg': '#FEF3C7',
+        'status-pending-text': '#92400E',
+        'status-confirmed-bg': '#DCFCE7',
+        'status-confirmed-text': '#166534',
+        'status-completed-bg': '#E2E8F0',
+        'status-completed-text': '#334155',
+        'status-cancelled-bg': '#FEE2E2',
+        'status-cancelled-text': '#991B1B',
+      },
+      borderRadius: {
+        'sm': '8px',
+        'DEFAULT': '12px',
+        'md': '16px',
+        'lg': '20px',
+        'xl': '28px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '16px',
+        'gutter-lg': '24px',
+        'gutter-xl': '32px',
+        'section': '32px',
+        'page-margin': '16px',
+      },
+      fontFamily: {
+        'display': ['"Poppins"', 'sans-serif'],
+        'headline': ['"Poppins"', 'sans-serif'],
+        'title': ['"Poppins"', 'sans-serif'],
+        'body': ['"Nunito"', 'sans-serif'],
+        'label': ['"Poppins"', 'sans-serif'],
+        'mono': ['"Source Code Pro"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['36px', { lineHeight: '44px', letterSpacing: '-0.5px', fontWeight: '700' }],
+        'display-lg-mobile': ['28px', { lineHeight: '36px', letterSpacing: '-0.25px', fontWeight: '700' }],
+        'headline-lg': ['32px', { lineHeight: '40px', letterSpacing: '-0.25px', fontWeight: '700' }],
+        'headline-md': ['24px', { lineHeight: '32px', letterSpacing: '0px', fontWeight: '600' }],
+        'headline-sm': ['20px', { lineHeight: '28px', letterSpacing: '0px', fontWeight: '600' }],
+        'title-md': ['18px', { lineHeight: '26px', letterSpacing: '0px', fontWeight: '600' }],
+        'body-lg': ['18px', { lineHeight: '28px', letterSpacing: '0px', fontWeight: '500' }],
+        'body-md': ['16px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '500' }],
+        'label-lg': ['16px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '600' }],
+        'label-md': ['14px', { lineHeight: '20px', letterSpacing: '0.1px', fontWeight: '600' }],
+        'label-sm': ['12px', { lineHeight: '16px', letterSpacing: '0.2px', fontWeight: '600' }],
+        'mono-md': ['15px', { lineHeight: '22px', letterSpacing: '0.25px', fontWeight: '600' }],
+      },
+      transitionDuration: {
+        'state-change': '150ms',
+        'surface-enter': '250ms',
+        'surface-exit': '150ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'ease-out',
+        'surface-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+        'surface-exit': 'cubic-bezier(0.3, 0, 1, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&amp;family=Poppins:wght@500;600;700&amp;family=Source+Code+Pro:wght@600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; }</style>
+</head>
+<body class="bg-surface text-on-surface font-body antialiased">
+  <div class="min-h-[884px] flex flex-col max-w-2xl mx-auto" data-stitch-vh="min-h-[884px]===min-h-screen">
+    <!-- Task Flow Header with Back Button -->
+    <header class="sticky top-0 z-30 bg-surface-container-high border-b border-outline px-4 py-2.5 flex items-center justify-between gap-2">
+      <button type="button" id="header-back-btn" onclick="prevStep()" aria-label="Go back" class="min-h-[48px] min-w-[48px] rounded-full bg-surface-container-low border border-outline inline-flex items-center justify-center text-on-surface hover:bg-secondary">
+        <span class="material-symbols-outlined text-[24px]" aria-hidden="true">arrow_back</span>
+      </button>
+      <div class="text-center">
+        <span class="font-headline text-title-md text-on-surface block" data-design-text-token="title-md">Book Appointment</span>
+        <span id="step-label" class="font-label text-label-sm text-on-surface-variant" data-design-text-token="label-sm">Step 1 of 3 • Choose Service</span>
+      </div>
+      <div class="w-12" aria-hidden="true"></div>
+    </header>
+
+    <!-- Progress Indicator -->
+    <div class="px-4 pt-4">
+      <div class="grid grid-cols-3 gap-2">
+        <div id="prog-1" class="h-2 rounded-full bg-primary"></div>
+        <div id="prog-2" class="h-2 rounded-full bg-outline-variant"></div>
+        <div id="prog-3" class="h-2 rounded-full bg-outline-variant"></div>
+      </div>
+    </div>
+
+    <main class="flex-1 px-4 py-5 flex flex-col gap-5">
+      <!-- Facility Context Banner -->
+      <div class="rounded-lg bg-secondary border border-outline p-3.5 flex items-center gap-3">
+        <span class="material-symbols-outlined text-[24px] text-on-surface shrink-0" aria-hidden="true">local_hospital</span>
+        <div class="min-w-0">
+          <p class="font-headline text-label-lg text-on-surface truncate" data-design-text-token="label-lg">Baybay City Immaculate Conception Hospital</p>
+          <p class="font-body text-body-md text-on-surface" data-design-text-token="body-md">Brgy. Cogon, Baybay City</p>
+        </div>
+      </div>
+
+      <!-- STEP 1: Choose Service -->
+      <section id="step-1" class="flex flex-col gap-4">
+        <h1 class="font-headline text-headline-md text-on-surface" data-design-text-token="headline-md">1. Choose a Service</h1>
+        <div class="flex flex-col gap-3">
+          <label class="min-h-[48px] rounded-lg bg-surface-container-high border-2 border-on-surface p-4 flex items-center justify-between gap-3 cursor-pointer">
+            <div class="flex items-center gap-3">
+              <input type="radio" name="service" value="General Outpatient Consultation" checked class="w-5 h-5 text-on-surface focus:ring-primary">
+              <div>
+                <span class="font-headline text-label-lg text-on-surface block" data-design-text-token="label-lg">General Outpatient Consultation</span>
+                <span class="font-body text-body-md text-on-surface-variant" data-design-text-token="body-md">30 mins • Adult &amp; senior check-up</span>
+              </div>
+            </div>
+            <span class="font-headline text-title-md text-on-surface tabular-nums" data-design-text-token="title-md">₱150</span>
+          </label>
+
+          <label class="min-h-[48px] rounded-lg bg-surface-container-high border border-outline p-4 flex items-center justify-between gap-3 cursor-pointer hover:bg-secondary/50">
+            <div class="flex items-center gap-3">
+              <input type="radio" name="service" value="Pediatric Check-up" class="w-5 h-5 text-on-surface focus:ring-primary">
+              <div>
+                <span class="font-headline text-label-lg text-on-surface block" data-design-text-token="label-lg">Pediatric Check-up</span>
+                <span class="font-body text-body-md text-on-surface-variant" data-design-text-token="body-md">30 mins • Child consultation</span>
+              </div>
+            </div>
+            <span class="font-headline text-title-md text-on-surface tabular-nums" data-design-text-token="title-md">₱200</span>
+          </label>
+
+          <label class="min-h-[48px] rounded-lg bg-surface-container-high border border-outline p-4 flex items-center justify-between gap-3 cursor-pointer hover:bg-secondary/50">
+            <div class="flex items-center gap-3">
+              <input type="radio" name="service" value="Complete Blood Count (CBC)" class="w-5 h-5 text-on-surface focus:ring-primary">
+              <div>
+                <span class="font-headline text-label-lg text-on-surface block" data-design-text-token="label-lg">Complete Blood Count (CBC)</span>
+                <span class="font-body text-body-md text-on-surface-variant" data-design-text-token="body-md">15 mins • Laboratory extraction</span>
+              </div>
+            </div>
+            <span class="font-headline text-title-md text-on-surface tabular-nums" data-design-text-token="title-md">₱250</span>
+          </label>
+        </div>
+
+        <div class="flex items-center gap-3 pt-2">
+          <a href="../05-clinic-profile/ClinicProfile.html" class="min-h-[48px] px-5 py-3 rounded-full bg-surface-container-high border border-outline text-on-surface font-label text-label-lg inline-flex items-center justify-center">
+            <span data-design-text-token="label-lg">Back</span>
+          </a>
+          <button type="button" onclick="goToStep(2)" class="flex-1 min-h-[48px] px-6 py-3 rounded-full bg-primary text-on-primary font-label text-label-lg hover:bg-primary-deep transition-colors duration-state-change inline-flex items-center justify-center gap-2 shadow-sm">
+            <span data-design-text-token="label-lg">Next: Date &amp; Time</span>
+            <span class="material-symbols-outlined text-[20px]" aria-hidden="true">arrow_forward</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- STEP 2: Choose Date & Time -->
+      <section id="step-2" hidden class="flex flex-col gap-4">
+        <h1 class="font-headline text-headline-md text-on-surface" data-design-text-token="headline-md">2. Choose Date &amp; Time</h1>
+
+        <div class="rounded-lg bg-surface-container-high border border-outline p-4 flex flex-col gap-3">
+          <div class="flex items-center justify-between">
+            <span class="font-headline text-title-md text-on-surface" data-design-text-token="title-md">November 2026</span>
+            <span class="font-label text-label-sm text-on-surface-variant" data-design-text-token="label-sm">Select a day</span>
+          </div>
+          <div class="grid grid-cols-5 gap-2 text-center">
+            <button type="button" class="min-h-[48px] rounded-DEFAULT bg-outline-variant border border-outline-variant p-2 flex flex-col items-center justify-center text-on-surface cursor-not-allowed" disabled>
+              <span class="font-label text-label-sm line-through" data-design-text-token="label-sm">Mon</span>
+              <span class="font-headline text-label-lg tabular-nums line-through" data-design-text-token="label-lg">23</span>
+            </button>
+            <button type="button" class="min-h-[48px] rounded-DEFAULT bg-surface-container-low border border-outline p-2 flex flex-col items-center justify-center hover:bg-secondary">
+              <span class="font-label text-label-sm" data-design-text-token="label-sm">Tue</span>
+              <span class="font-headline text-label-lg tabular-nums" data-design-text-token="label-lg">24</span>
+            </button>
+            <button type="button" class="min-h-[48px] rounded-DEFAULT bg-primary border-2 border-on-surface p-2 flex flex-col items-center justify-center text-on-primary">
+              <span class="font-label text-label-sm" data-design-text-token="label-sm">Wed</span>
+              <span class="font-headline text-label-lg tabular-nums" data-design-text-token="label-lg">25</span>
+            </button>
+            <button type="button" class="min-h-[48px] rounded-DEFAULT bg-surface-container-low border border-outline p-2 flex flex-col items-center justify-center hover:bg-secondary">
+              <span class="font-label text-label-sm" data-design-text-token="label-sm">Thu</span>
+              <span class="font-headline text-label-lg tabular-nums" data-design-text-token="label-lg">26</span>
+            </button>
+            <button type="button" class="min-h-[48px] rounded-DEFAULT bg-surface-container-low border border-outline p-2 flex flex-col items-center justify-center hover:bg-secondary">
+              <span class="font-label text-label-sm" data-design-text-token="label-sm">Fri</span>
+              <span class="font-headline text-label-lg tabular-nums" data-design-text-token="label-lg">27</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="rounded-lg bg-surface-container-high border border-outline p-4 flex flex-col gap-3">
+          <span class="font-headline text-title-md text-on-surface" data-design-text-token="title-md">Available Time Slots (Nov 25)</span>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+            <button type="button" disabled class="min-h-[48px] px-3 py-2 rounded-full bg-outline-variant text-on-surface font-label text-label-md cursor-not-allowed line-through tabular-nums">
+              <span data-design-text-token="label-md">8:00 AM (Full)</span>
+            </button>
+            <button type="button" class="min-h-[48px] px-3 py-2 rounded-full bg-primary border-2 border-on-surface text-on-primary font-label text-label-md tabular-nums">
+              <span data-design-text-token="label-md">9:00 AM</span>
+            </button>
+            <button type="button" class="min-h-[48px] px-3 py-2 rounded-full bg-surface-container-low border border-outline text-on-surface font-label text-label-md hover:bg-secondary tabular-nums">
+              <span data-design-text-token="label-md">10:30 AM</span>
+            </button>
+            <button type="button" disabled class="min-h-[48px] px-3 py-2 rounded-full bg-outline-variant text-on-surface font-label text-label-md cursor-not-allowed line-through tabular-nums">
+              <span data-design-text-token="label-md">1:00 PM (Full)</span>
+            </button>
+            <button type="button" class="min-h-[48px] px-3 py-2 rounded-full bg-surface-container-low border border-outline text-on-surface font-label text-label-md hover:bg-secondary tabular-nums">
+              <span data-design-text-token="label-md">2:30 PM</span>
+            </button>
+            <button type="button" class="min-h-[48px] px-3 py-2 rounded-full bg-surface-container-low border border-outline text-on-surface font-label text-label-md hover:bg-secondary tabular-nums">
+              <span data-design-text-token="label-md">4:00 PM</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3 pt-2">
+          <button type="button" onclick="goToStep(1)" class="min-h-[48px] px-5 py-3 rounded-full bg-surface-container-high border border-outline text-on-surface font-label text-label-lg inline-flex items-center justify-center">
+            <span data-design-text-token="label-lg">Back</span>
+          </button>
+          <button type="button" onclick="goToStep(3)" class="flex-1 min-h-[48px] px-6 py-3 rounded-full bg-primary text-on-primary font-label text-label-lg hover:bg-primary-deep transition-colors duration-state-change inline-flex items-center justify-center gap-2 shadow-sm">
+            <span data-design-text-token="label-lg">Next: Patient Info</span>
+            <span class="material-symbols-outlined text-[20px]" aria-hidden="true">arrow_forward</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- STEP 3: Patient Info & Review Summary -->
+      <section id="step-3" hidden class="flex flex-col gap-4">
+        <h1 class="font-headline text-headline-md text-on-surface" data-design-text-token="headline-md">3. Patient Information &amp; Review</h1>
+
+        <div class="rounded-lg bg-surface-container-high border border-outline p-4 flex flex-col gap-4">
+          <label class="flex flex-col gap-1.5">
+            <span class="font-label text-label-md text-on-surface" data-design-text-token="label-md">Patient Full Name</span>
+            <input type="text" value="Elena M. Reyes" class="min-h-[48px] w-full rounded-DEFAULT bg-surface-container-low border border-outline px-4 py-3 font-body text-body-md text-on-surface">
+          </label>
+          <label class="flex flex-col gap-1.5">
+            <span class="font-label text-label-md text-on-surface" data-design-text-token="label-md">Mobile Number</span>
+            <input type="tel" value="0917 458 2219" class="min-h-[48px] w-full rounded-DEFAULT bg-surface-container-low border border-outline px-4 py-3 font-body text-body-md text-on-surface tabular-nums">
+          </label>
+          <label class="flex flex-col gap-1.5">
+            <span class="font-label text-label-md text-on-surface" data-design-text-token="label-md">Reason for Consultation</span>
+            <textarea rows="2" class="w-full rounded-DEFAULT bg-surface-container-low border border-outline px-4 py-3 font-body text-body-md text-on-surface">Recurring headache and blood pressure check-up</textarea>
+          </label>
+          <label class="flex flex-col gap-1.5">
+            <span class="font-label text-label-md text-on-surface" data-design-text-token="label-md">Doctor Preference (Optional)</span>
+            <select class="min-h-[48px] w-full rounded-DEFAULT bg-surface-container-low border border-outline px-4 py-3 font-body text-body-md text-on-surface">
+              <option selected>Any available doctor</option>
+              <option>Dr. Maria Elena Santos (Internal Medicine)</option>
+              <option>Dr. Roberto Villanueva (Family Medicine)</option>
+            </select>
+          </label>
+          <div class="flex flex-col gap-1.5">
+            <span class="font-label text-label-md text-on-surface" data-design-text-token="label-md">Payment Preference</span>
+            <div class="grid grid-cols-2 gap-2.5">
+              <label class="min-h-[48px] rounded-DEFAULT bg-secondary border-2 border-on-surface px-4 py-2.5 flex items-center gap-2 cursor-pointer">
+                <input type="radio" name="payment" checked class="w-4 h-4 text-on-surface">
+                <span class="font-label text-label-md text-on-surface" data-design-text-token="label-md">Cash at Clinic</span>
+              </label>
+              <label class="min-h-[48px] rounded-DEFAULT bg-surface-container-low border border-outline px-4 py-2.5 flex items-center gap-2 cursor-pointer">
+                <input type="radio" name="payment" class="w-4 h-4 text-on-surface">
+                <span class="font-label text-label-md text-on-surface" data-design-text-token="label-md">Online</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review Summary -->
+        <div class="rounded-lg bg-secondary border border-outline p-4 flex flex-col gap-2">
+          <h2 class="font-headline text-title-md text-on-surface" data-design-text-token="title-md">Review Summary</h2>
+          <p class="font-body text-body-md text-on-surface" data-design-text-token="body-md">
+            <strong>Service:</strong> General Outpatient Consultation (₱150)<br>
+            <strong>Schedule:</strong> November 25, 2026 at 9:00 AM<br>
+            <strong>Note:</strong> Your request will be sent to the clinic for confirmation.
+          </p>
+        </div>
+
+        <div class="flex items-center gap-3 pt-2">
+          <button type="button" onclick="goToStep(2)" class="min-h-[48px] px-5 py-3 rounded-full bg-surface-container-high border border-outline text-on-surface font-label text-label-lg inline-flex items-center justify-center">
+            <span data-design-text-token="label-lg">Back</span>
+          </button>
+          <a href="../08-request-submitted/RequestSubmitted.html" class="flex-1 min-h-[48px] px-6 py-3 rounded-full bg-primary text-on-primary font-label text-label-lg hover:bg-primary-deep transition-colors duration-state-change inline-flex items-center justify-center gap-2 shadow-sm">
+            <span data-design-text-token="label-lg">Submit Appointment Request</span>
+          </a>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    let currentStep = 1;
+    function goToStep(step) {
+      currentStep = step;
+      document.getElementById('step-1').hidden = step !== 1;
+      document.getElementById('step-2').hidden = step !== 2;
+      document.getElementById('step-3').hidden = step !== 3;
+      document.getElementById('prog-1').className = step >= 1 ? 'h-2 rounded-full bg-primary' : 'h-2 rounded-full bg-outline-variant';
+      document.getElementById('prog-2').className = step >= 2 ? 'h-2 rounded-full bg-primary' : 'h-2 rounded-full bg-outline-variant';
+      document.getElementById('prog-3').className = step >= 3 ? 'h-2 rounded-full bg-primary' : 'h-2 rounded-full bg-outline-variant';
+      const labels = {
+        1: 'Step 1 of 3 • Choose Service',
+        2: 'Step 2 of 3 • Date & Time',
+        3: 'Step 3 of 3 • Patient Info'
+      };
+      document.getElementById('step-label').textContent = labels[step];
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    function prevStep() {
+      if (currentStep > 1) {
+        goToStep(currentStep - 1);
+      } else {
+        window.location.href = '../05-clinic-profile/ClinicProfile.html';
+      }
+    }
+  </script>
+
+
+</body></html>

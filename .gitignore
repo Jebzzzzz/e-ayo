@@ -1,0 +1,14 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+*.tsbuildinfo
+
+# Local env & logs
+.env
+.env.*
+*.log
+
+# Archive files
+*.zip

@@ -1,0 +1,287 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Ayo — My Appointments</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'primary': '#FEA38E',
+        'on-primary': '#3B2A26',
+        'primary-deep': '#E8735A',
+        'on-primary-deep': '#3B2A26',
+        'secondary': '#FFDFC3',
+        'on-secondary': '#3B2A26',
+        'tertiary': '#FBA2AB',
+        'on-tertiary': '#3B2A26',
+        'surface': '#F5EBD0',
+        'on-surface': '#3B2A26',
+        'on-surface-variant': '#7A625B',
+        'surface-container-low': '#FAF3E0',
+        'surface-container': '#FFDFC3',
+        'surface-container-high': '#FFF9EE',
+        'outline': '#F3B5A0',
+        'outline-variant': '#E6C9B8',
+        'status-pending-bg': '#FEF3C7',
+        'status-pending-text': '#92400E',
+        'status-confirmed-bg': '#DCFCE7',
+        'status-confirmed-text': '#166534',
+        'status-completed-bg': '#E2E8F0',
+        'status-completed-text': '#334155',
+        'status-cancelled-bg': '#FEE2E2',
+        'status-cancelled-text': '#991B1B',
+      },
+      borderRadius: {
+        'sm': '8px',
+        'DEFAULT': '12px',
+        'md': '16px',
+        'lg': '20px',
+        'xl': '28px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '16px',
+        'gutter-lg': '24px',
+        'gutter-xl': '32px',
+        'section': '32px',
+        'page-margin': '16px',
+      },
+      fontFamily: {
+        'display': ['"Poppins"', 'sans-serif'],
+        'headline': ['"Poppins"', 'sans-serif'],
+        'title': ['"Poppins"', 'sans-serif'],
+        'body': ['"Nunito"', 'sans-serif'],
+        'label': ['"Poppins"', 'sans-serif'],
+        'mono': ['"Source Code Pro"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['36px', { lineHeight: '44px', letterSpacing: '-0.5px', fontWeight: '700' }],
+        'display-lg-mobile': ['28px', { lineHeight: '36px', letterSpacing: '-0.25px', fontWeight: '700' }],
+        'headline-lg': ['32px', { lineHeight: '40px', letterSpacing: '-0.25px', fontWeight: '700' }],
+        'headline-md': ['24px', { lineHeight: '32px', letterSpacing: '0px', fontWeight: '600' }],
+        'headline-sm': ['20px', { lineHeight: '28px', letterSpacing: '0px', fontWeight: '600' }],
+        'title-md': ['18px', { lineHeight: '26px', letterSpacing: '0px', fontWeight: '600' }],
+        'body-lg': ['18px', { lineHeight: '28px', letterSpacing: '0px', fontWeight: '500' }],
+        'body-md': ['16px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '500' }],
+        'label-lg': ['16px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '600' }],
+        'label-md': ['14px', { lineHeight: '20px', letterSpacing: '0.1px', fontWeight: '600' }],
+        'label-sm': ['12px', { lineHeight: '16px', letterSpacing: '0.2px', fontWeight: '600' }],
+        'mono-md': ['15px', { lineHeight: '22px', letterSpacing: '0.25px', fontWeight: '600' }],
+      },
+      transitionDuration: {
+        'state-change': '150ms',
+        'surface-enter': '250ms',
+        'surface-exit': '150ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'ease-out',
+        'surface-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+        'surface-exit': 'cubic-bezier(0.3, 0, 1, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&amp;family=Poppins:wght@500;600;700&amp;family=Source+Code+Pro:wght@600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; }</style>
+</head>
+<body class="bg-surface text-on-surface font-body antialiased">
+  <div class="min-h-[884px] flex flex-col max-w-5xl mx-auto" data-stitch-vh="min-h-[884px]===min-h-screen">
+    <!-- Dismissible Install App Banner -->
+    <div id="install-banner" class="bg-secondary border-b border-outline px-4 py-2 flex items-center justify-between gap-2">
+      <div class="flex items-center gap-2 min-w-0">
+        <span class="material-symbols-outlined text-on-surface text-[20px] shrink-0" aria-hidden="true">install_mobile</span>
+        <span class="font-body text-label-md text-on-surface truncate" data-design-text-token="label-md">Install E-Ayo on your phone</span>
+      </div>
+      <div class="flex items-center gap-2 shrink-0">
+        <button type="button" onclick="document.getElementById(&#39;install-banner&#39;).hidden=true" class="min-h-[36px] px-3 py-1 rounded-full bg-primary text-on-primary font-label text-label-sm">
+          <span data-design-text-token="label-sm">Install App</span>
+        </button>
+        <button type="button" onclick="document.getElementById(&#39;install-banner&#39;).hidden=true" aria-label="Dismiss install banner" class="min-h-[36px] min-w-[36px] rounded-full inline-flex items-center justify-center text-on-surface hover:bg-surface-container-high">
+          <span class="material-symbols-outlined text-[18px]" aria-hidden="true">close</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Sticky Top Header -->
+    <header class="sticky top-0 z-30 bg-surface-container-high border-b border-outline px-4 py-2.5 flex items-center justify-between gap-2">
+      <div class="flex items-center gap-2.5">
+        <div class="w-10 h-10 rounded-DEFAULT bg-primary flex items-center justify-center border border-outline">
+          <span class="material-symbols-outlined text-on-primary text-[22px]" aria-hidden="true">health_and_safety</span>
+        </div>
+        <span class="font-headline text-title-md text-on-surface" data-design-text-token="title-md">E-Ayo</span>
+        <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-secondary border border-outline font-label text-label-sm text-on-surface">
+          <span class="material-symbols-outlined text-[14px]" aria-hidden="true">cloud_done</span>
+          <span data-design-text-token="label-sm">Offline Ready</span>
+        </span>
+      </div>
+      <a href="#notifications-panel" aria-label="Notifications, 2 unread" class="relative min-h-[48px] min-w-[48px] rounded-full bg-surface-container-low border border-outline inline-flex items-center justify-center text-on-surface hover:bg-secondary">
+        <span class="material-symbols-outlined text-[24px]" aria-hidden="true">notifications</span>
+        <span data-component-id="badge-numeric" data-component-type="badge" data-component-variant="numeric" aria-hidden="true" class="absolute -top-1 -right-1 min-w-[20px] h-[20px] px-1 rounded-full bg-tertiary text-on-tertiary font-label text-label-sm flex items-center justify-center tabular-nums">2</span>
+      </a>
+    </header>
+
+    <main class="flex-1 px-4 py-5 flex flex-col gap-5">
+      <div class="flex items-center justify-between gap-2">
+        <h1 class="font-headline text-headline-md text-on-surface" data-design-text-token="headline-md">My Appointments</h1>
+        <a href="../07-book-appointment/BookAppointment.html" class="min-h-[48px] px-4 py-2 rounded-full bg-primary text-on-primary font-label text-label-md inline-flex items-center gap-1.5 shrink-0">
+          <span class="material-symbols-outlined text-[18px]" aria-hidden="true">add</span>
+          <span data-design-text-token="label-md">New Request</span>
+        </a>
+      </div>
+
+      <!-- Notifications Panel -->
+      <section id="notifications-panel" class="rounded-lg bg-secondary border border-outline p-4 flex flex-col gap-2.5">
+        <div class="flex items-center justify-between gap-2">
+          <h2 class="font-headline text-label-lg text-on-surface flex items-center gap-2" data-design-text-token="label-lg">
+            <span class="material-symbols-outlined text-[20px]" aria-hidden="true">notifications_active</span>
+            Notifications
+          </h2>
+          <span class="font-label text-label-sm text-on-surface" data-design-text-token="label-sm">2 updates</span>
+        </div>
+        <div class="rounded-DEFAULT bg-surface-container-high border border-outline-variant p-3 flex items-start gap-2.5">
+          <span class="material-symbols-outlined text-[20px] text-status-confirmed-text shrink-0 mt-0.5" aria-hidden="true">check_circle</span>
+          <p class="font-body text-body-md text-on-surface" data-design-text-token="body-md">
+            <strong>Your appointment was confirmed</strong> — Kidzklinika approved your visit for Nov 26, 2026 at 10:00 AM.
+          </p>
+        </div>
+      </section>
+
+      <!-- Scrollable Status Tabs -->
+      <div role="tablist" aria-label="Appointment status filters" class="flex items-center gap-2 overflow-x-auto pb-1">
+        <button role="tab" aria-selected="true" class="min-h-[48px] shrink-0 px-4 py-2 rounded-full bg-primary text-on-primary font-label text-label-md">
+          <span data-design-text-token="label-md">Upcoming (2)</span>
+        </button>
+        <button role="tab" aria-selected="false" class="min-h-[48px] shrink-0 px-4 py-2 rounded-full bg-surface-container-high border border-outline text-on-surface font-label text-label-md hover:bg-secondary">
+          <span data-design-text-token="label-md">Pending</span>
+        </button>
+        <button role="tab" aria-selected="false" class="min-h-[48px] shrink-0 px-4 py-2 rounded-full bg-surface-container-high border border-outline text-on-surface font-label text-label-md hover:bg-secondary">
+          <span data-design-text-token="label-md">Confirmed</span>
+        </button>
+        <button role="tab" aria-selected="false" class="min-h-[48px] shrink-0 px-4 py-2 rounded-full bg-surface-container-high border border-outline text-on-surface font-label text-label-md hover:bg-secondary">
+          <span data-design-text-token="label-md">Completed</span>
+        </button>
+        <button role="tab" aria-selected="false" class="min-h-[48px] shrink-0 px-4 py-2 rounded-full bg-surface-container-high border border-outline text-on-surface font-label text-label-md hover:bg-secondary">
+          <span data-design-text-token="label-md">Cancelled</span>
+        </button>
+        <button role="tab" aria-selected="false" class="min-h-[48px] shrink-0 px-4 py-2 rounded-full bg-surface-container-high border border-outline text-on-surface font-label text-label-md hover:bg-secondary">
+          <span data-design-text-token="label-md">History</span>
+        </button>
+      </div>
+
+      <!-- Appointment Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- Pending Card -->
+        <article data-component-id="card-action" data-component-type="card" data-component-variant="action" class="rounded-lg bg-surface-container-high border border-outline p-4 flex flex-col gap-3 shadow-sm">
+          <div class="flex items-center justify-between gap-2">
+            <span class="font-mono text-mono-md text-on-surface-variant tabular-nums" data-design-text-token="mono-md">EAYO-2026-0001</span>
+            <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-status-pending-bg text-status-pending-text font-label text-label-sm" data-design-text-token="label-sm">
+              <span class="material-symbols-outlined text-[16px]" aria-hidden="true">schedule</span>
+              Pending Confirmation
+            </span>
+          </div>
+          <div>
+            <h3 class="font-headline text-title-md text-on-surface" data-design-text-token="title-md">Baybay City Immaculate Conception Hospital</h3>
+            <p class="font-body text-body-md text-on-surface-variant" data-design-text-token="body-md">General Outpatient Consultation</p>
+          </div>
+          <div class="flex flex-wrap items-center gap-4 text-body-md text-on-surface">
+            <span class="inline-flex items-center gap-1.5 tabular-nums" data-design-text-token="body-md">
+              <span class="material-symbols-outlined text-[18px]" aria-hidden="true">calendar_today</span>
+              November 25, 2026
+            </span>
+            <span class="inline-flex items-center gap-1.5 tabular-nums" data-design-text-token="body-md">
+              <span class="material-symbols-outlined text-[18px]" aria-hidden="true">schedule</span>
+              9:00 AM
+            </span>
+          </div>
+          <footer class="flex items-center gap-3 pt-2 border-t border-outline-variant">
+            <a href="../07-book-appointment/BookAppointment.html" class="flex-1 min-h-[48px] px-4 py-2.5 rounded-full bg-surface-container border border-outline text-on-surface font-label text-label-md inline-flex items-center justify-center gap-1.5">
+              <span class="material-symbols-outlined text-[18px]" aria-hidden="true">event_repeat</span>
+              <span data-design-text-token="label-md">Reschedule</span>
+            </a>
+            <button type="button" class="flex-1 min-h-[48px] px-4 py-2.5 rounded-full bg-surface-container-low border border-status-cancelled-text text-status-cancelled-text font-label text-label-md inline-flex items-center justify-center gap-1.5">
+              <span class="material-symbols-outlined text-[18px]" aria-hidden="true">cancel</span>
+              <span data-design-text-token="label-md">Cancel</span>
+            </button>
+          </footer>
+        </article>
+
+        <!-- Confirmed Card -->
+        <article data-component-id="card-action" data-component-type="card" data-component-variant="action" class="rounded-lg bg-surface-container-high border border-outline p-4 flex flex-col gap-3 shadow-sm">
+          <div class="flex items-center justify-between gap-2">
+            <span class="font-mono text-mono-md text-on-surface-variant tabular-nums" data-design-text-token="mono-md">EAYO-2026-0002</span>
+            <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-status-confirmed-bg text-status-confirmed-text font-label text-label-sm" data-design-text-token="label-sm">
+              <span class="material-symbols-outlined text-[16px]" aria-hidden="true">check_circle</span>
+              Confirmed
+            </span>
+          </div>
+          <div>
+            <h3 class="font-headline text-title-md text-on-surface" data-design-text-token="title-md">Kidzklinika</h3>
+            <p class="font-body text-body-md text-on-surface-variant" data-design-text-token="body-md">Pediatric Check-up • Dr. Liza Tan</p>
+          </div>
+          <div class="flex flex-wrap items-center gap-4 text-body-md text-on-surface">
+            <span class="inline-flex items-center gap-1.5 tabular-nums" data-design-text-token="body-md">
+              <span class="material-symbols-outlined text-[18px]" aria-hidden="true">calendar_today</span>
+              November 26, 2026
+            </span>
+            <span class="inline-flex items-center gap-1.5 tabular-nums" data-design-text-token="body-md">
+              <span class="material-symbols-outlined text-[18px]" aria-hidden="true">schedule</span>
+              10:00 AM
+            </span>
+          </div>
+          <footer class="flex items-center gap-3 pt-2 border-t border-outline-variant">
+            <a href="../07-book-appointment/BookAppointment.html" class="flex-1 min-h-[48px] px-4 py-2.5 rounded-full bg-surface-container border border-outline text-on-surface font-label text-label-md inline-flex items-center justify-center gap-1.5">
+              <span class="material-symbols-outlined text-[18px]" aria-hidden="true">event_repeat</span>
+              <span data-design-text-token="label-md">Reschedule</span>
+            </a>
+            <button type="button" class="flex-1 min-h-[48px] px-4 py-2.5 rounded-full bg-surface-container-low border border-status-cancelled-text text-status-cancelled-text font-label text-label-md inline-flex items-center justify-center gap-1.5">
+              <span class="material-symbols-outlined text-[18px]" aria-hidden="true">cancel</span>
+              <span data-design-text-token="label-md">Cancel</span>
+            </button>
+          </footer>
+        </article>
+      </div>
+    </main>
+
+    <!-- Sticky Bottom Navigation (5 Tabs) -->
+    <nav aria-label="Primary navigation" class="sticky bottom-0 z-30 bg-surface-container-high border-t border-outline px-1 py-2">
+      <div class="flex items-center justify-between gap-1">
+        <a href="../03-home/Home.html" class="flex-auto min-h-[48px] px-1.5 py-1.5 rounded-full text-on-surface-variant hover:text-on-surface flex flex-col items-center justify-center gap-0.5">
+          <span class="material-symbols-outlined text-[22px]" aria-hidden="true">home</span>
+          <span class="font-label text-label-sm" data-design-text-token="label-sm">Home</span>
+        </a>
+        <a href="../04-find-clinic/FindAClinic.html" class="flex-auto min-h-[48px] px-1.5 py-1.5 rounded-full text-on-surface-variant hover:text-on-surface flex flex-col items-center justify-center gap-0.5">
+          <span class="material-symbols-outlined text-[22px]" aria-hidden="true">local_hospital</span>
+          <span class="font-label text-label-sm" data-design-text-token="label-sm">Find a Clinic</span>
+        </a>
+        <a href="../06-services/Services.html" class="flex-auto min-h-[48px] px-1.5 py-1.5 rounded-full text-on-surface-variant hover:text-on-surface flex flex-col items-center justify-center gap-0.5">
+          <span class="material-symbols-outlined text-[22px]" aria-hidden="true">medical_services</span>
+          <span class="font-label text-label-sm" data-design-text-token="label-sm">Services</span>
+        </a>
+        <a href="../09-my-appointments/MyAppointments.html" aria-current="page" class="flex-auto min-h-[48px] px-2 py-1.5 rounded-full bg-primary text-on-primary flex flex-col items-center justify-center gap-0.5">
+          <span class="material-symbols-outlined text-[22px]" style="font-variation-settings: &#39;FILL&#39; 1;" aria-hidden="true">calendar_month</span>
+          <span class="font-label text-label-sm" data-design-text-token="label-sm">Appointments</span>
+        </a>
+        <a href="../02-login-register/LoginRegister.html" class="flex-auto min-h-[48px] px-1.5 py-1.5 rounded-full text-on-surface-variant hover:text-on-surface flex flex-col items-center justify-center gap-0.5">
+          <span class="material-symbols-outlined text-[22px]" aria-hidden="true">person</span>
+          <span class="font-label text-label-sm" data-design-text-token="label-sm">Profile</span>
+        </a>
+      </div>
+    </nav>
+  </div>
+
+
+</body></html>
