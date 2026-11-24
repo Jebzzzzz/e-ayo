@@ -53,10 +53,10 @@ export const HomePage: React.FC = () => {
 
   return (
     <main className="flex-1 max-w-5xl lg:max-w-7xl w-full mx-auto px-4 md:px-6 py-5 md:py-8 flex flex-col gap-7 md:gap-10">
-      {/* Welcome Hero & Search (Mobile single column / Desktop 12-column split) */}
+      {/* Welcome Hero & Search (2 Columns matching web_home) */}
       <section className="rounded-xl bg-secondary border border-outline p-5 md:p-8 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
         <div className="lg:col-span-7 flex flex-col gap-4 md:gap-5">
-          <span className="hidden lg:inline-flex items-center gap-1.5 self-start px-3.5 py-1 rounded-full bg-surface-container-high border border-outline font-label text-label-sm text-on-surface">
+          <span className="inline-flex items-center gap-1.5 self-start px-3.5 py-1 rounded-full bg-surface-container-high border border-outline font-label text-label-sm text-on-surface">
             <span className="material-symbols-outlined text-[16px]" aria-hidden="true">
               location_on
             </span>
@@ -64,10 +64,7 @@ export const HomePage: React.FC = () => {
           </span>
 
           <div className="flex flex-col gap-1.5">
-            <h1 className="lg:hidden font-headline text-headline-md text-on-surface text-balance">
-              Maayong adlaw, Baybayanon!
-            </h1>
-            <h1 className="hidden lg:block font-display text-display-lg text-on-surface text-balance">
+            <h1 className="font-display text-display-lg-mobile md:text-display-lg text-on-surface text-balance">
               Your Health, Within Your City.
             </h1>
             <p className="font-body text-body-md lg:text-body-lg text-on-surface text-pretty max-w-prose">
@@ -77,7 +74,7 @@ export const HomePage: React.FC = () => {
           </div>
 
           {/* Prominent Search Bar */}
-          <div className="flex items-center gap-3">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
             <button
               type="button"
               onClick={() => {
@@ -103,32 +100,18 @@ export const HomePage: React.FC = () => {
                 resetDirectoryFilters();
                 setActivePage('find-clinic');
               }}
-              className="hidden lg:inline-flex min-h-[48px] px-6 py-3 rounded-full bg-primary text-on-primary font-label text-label-lg hover:bg-primary-deep items-center justify-center shadow-2xs shrink-0 transition-colors duration-state-change cursor-pointer"
+              className="min-h-[48px] px-6 py-3 rounded-full bg-primary text-on-primary font-label text-label-lg hover:bg-primary-deep inline-flex items-center justify-center shadow-2xs shrink-0 transition-colors duration-state-change cursor-pointer"
             >
               <span>Find a Clinic</span>
             </button>
           </div>
 
-          {/* Main Action Buttons */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 lg:flex lg:flex-wrap gap-2.5 lg:gap-3">
-            <button
-              type="button"
-              onClick={() => {
-                resetDirectoryFilters();
-                setActivePage('find-clinic');
-              }}
-              className="lg:hidden min-h-[48px] px-4 py-3 rounded-full bg-primary text-on-primary font-label text-label-md inline-flex items-center justify-center gap-2 shadow-2xs hover:bg-primary-deep transition-colors duration-state-change cursor-pointer"
-            >
-              <span className="material-symbols-outlined text-[20px]" aria-hidden="true">
-                local_hospital
-              </span>
-              <span>Find a Clinic</span>
-            </button>
-
+          {/* Secondary Quick Buttons */}
+          <div className="flex flex-wrap items-center gap-3 pt-1">
             <button
               type="button"
               onClick={() => startBooking()}
-              className="min-h-[48px] px-4 lg:px-5 py-3 lg:py-2.5 rounded-full bg-surface-container-high border border-outline text-on-surface font-label text-label-md inline-flex items-center justify-center gap-2 hover:bg-primary/30 transition-colors duration-state-change cursor-pointer"
+              className="min-h-[48px] px-5 py-2.5 rounded-full bg-surface-container-high border border-outline text-on-surface font-label text-label-md inline-flex items-center justify-center gap-2 hover:bg-primary/30 transition-colors duration-state-change cursor-pointer"
             >
               <span className="material-symbols-outlined text-[20px]" aria-hidden="true">
                 calendar_add_on
@@ -139,7 +122,7 @@ export const HomePage: React.FC = () => {
             <button
               type="button"
               onClick={() => setActivePage('services')}
-              className="min-h-[48px] px-4 lg:px-5 py-3 lg:py-2.5 rounded-full bg-surface-container-high border border-outline text-on-surface font-label text-label-md inline-flex items-center justify-center gap-2 hover:bg-primary/30 transition-colors duration-state-change cursor-pointer"
+              className="min-h-[48px] px-5 py-2.5 rounded-full bg-surface-container-high border border-outline text-on-surface font-label text-label-md inline-flex items-center justify-center gap-2 hover:bg-primary/30 transition-colors duration-state-change cursor-pointer"
             >
               <span className="material-symbols-outlined text-[20px]" aria-hidden="true">
                 medical_services
@@ -149,13 +132,13 @@ export const HomePage: React.FC = () => {
           </div>
         </div>
 
-        {/* Desktop Hero Illustration */}
-        <div className="hidden lg:block lg:col-span-5">
+        {/* Hero Illustration (Always visible on Home) */}
+        <div className="lg:col-span-5">
           <div className="rounded-xl overflow-hidden bg-surface-container-high border border-outline p-3 shadow-2xs">
             <img
               src={STITCH_IMAGES.heroFamily}
               alt="Friendly Baybay City healthcare worker welcoming a local family"
-              className="w-full h-72 object-cover rounded-lg"
+              className="w-full h-64 md:h-72 object-contain bg-[#FAF2E7] rounded-lg"
             />
           </div>
         </div>

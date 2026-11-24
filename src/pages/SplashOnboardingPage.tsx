@@ -41,7 +41,7 @@ export const SplashOnboardingPage: React.FC = () => {
           <img
             src={STITCH_IMAGES.heroFamily}
             alt="Friendly Baybay City healthcare worker welcoming a local family"
-            className="w-full h-56 object-cover rounded-lg"
+            className="w-full h-56 object-contain bg-[#FAF2E7] rounded-lg"
           />
         </div>
 

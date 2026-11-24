@@ -59,20 +59,13 @@ export interface HealthcareFacility {
 }
 
 export const STITCH_IMAGES = {
-  heroFamily:
-    'https://lh3.googleusercontent.com/aida/ALJJyrA5tasMQGiMHAi-yj89PsKmrUf0ZPB253qUdCMbAKKkye6tO5agxPMIlqKSXF-di1uV14ZN4jsjreUqP7Ug_LENWaeQPLTgXA0dSo86z_XdxgCv9STCh8X_0lmoLsI17JVsZhal2oo3zyL7jwicfZ-RWtajdxuZ8KgGFttVi7GRZyWvZNeIIeP8v1Bdifh4ROs4RZXMSHpiHarzO-Ri7m4paRO7PAfyA4gEIWYUJj7RxYBg5Bg0B3IvWA',
-  mapPreview:
-    'https://lh3.googleusercontent.com/aida/ALJJyrBsDYUqshjzkJnaFkvOWsEi0eKiRpkKHaJhXymGWgAxALUDT4cVsaoC0HC2-KDK9dDFM4lpmFknfg6gWfhGZXwmxnTUm0WeH73-XHuj7d9a1LHSX0DV6E0eIs4qTEqtEYXQOVRVA4GeZ7bjh-sYS2zL_IuuSsWjE4A3Uo2KtQX0XOugXGajaPsRPw0UERH4sruMQItQClBjsoYlGt-dpsV-TBuwG8Uz1QYHbr9I1jKOUwBSbvU',
-  bcich:
-    'https://lh3.googleusercontent.com/aida/ALJJyrDsddkTqiOd7FnD-oA5pnhqr_yM3eGklzswvnkwPqBIBR-IrQHX2MKqyOnUGgPm-Z5BhnfPestLesnf4f9M8baUoCe_ICrTOy2lclnQLrPKIHRKXm6PPFW_MSg6BjR424w9ZB_gE1CXB72VHVkpe9m3PT6GLYMpTMQOEzDsDlRfubN1FYhwt6hjSAqOmMj_Oy1Taz9guHobywF3OgsVnLwA4VoYEkGKy3Vc1Pa9_2F3iQGzKvnSWheulg',
-  cho:
-    'https://lh3.googleusercontent.com/aida/ALJJyrBZ6gmMrPXUXlWQ4_tk-It_PVUo5HLnyKYBCzQRrpGiXTZDTl-Tk2E6Qed2tlJ5-nZ4OH_O0Ga_Fch5BX9MBFZ9NqYCzl_isc16G_tW98NPZBh_7Ju5wlV8taA3vbf-fQ05BO56UtzjcmwmT_sU5GKkTfgk1N3QGOizAxl4n0MLK1VOcfImUbwjU7cYjqxOM8kjwzTyTgGw-uJd28Q9eBIDDvnnzxhTfi_H1TY-fVi-MFb3I9ZnKYPFJJ209zn42g',
-  bcmddc:
-    'https://lh3.googleusercontent.com/aida/ALJJyrC5AEab844vt8c_gSpAaXYvxHon5_afktJnj1VuYIYXoisvmVtEVqX5cfEQEZVX7QnO9iUqFqvFeYJ1v-svALO-djOooI_xEbE8IcDpfzGj3RsgnxMhC-iEKUjkYeJTfkIV0Xo3528VyZfidRr7jY6MR6UQmJcd7gxPM1RMFNQk4mvRNeErDdnqBzG7vb0GTFvcwFJa9oA8zx8ZxublbUdJIRV9tO5gF24cb7GQljJNJ8TgtCmmzwmCmA',
-  kidzklinika:
-    'https://lh3.googleusercontent.com/aida/ALJJyrDsQ1FZ0Tcd2n56OkdF0Y_fay6wggdkxEKBChqaKiZKU5WZbA43M94VUmvllKL3n6LteahLfKW1UEjuuFazzmaOffh0Odw1v3UAknlczpMMKe9y7n5zPPd9rdr-itH-cC-Qtsp4ziJDcWeUewK5k0R1LOZ9HeacaVRTdoY1H33uZzcXjFdf-d3G0G8au8FDY_U4oIFM7sKSpvwS1pXJS0Z8ojTGnXIi5zLJimR5U4Ub6wgVfBxfLXbE0xor',
-  familyCare:
-    'https://lh3.googleusercontent.com/aida/ALJJyrARHy7l5HYgYH_6KjH5CFyBaVB0z6EhpvwrOl9df0Skz4ZzdRjktA0T1QSn8-XZUYDXOx85j8tLCtn1zE0ipNlnAj6GRHfRinmnbBgG9APBceDXoyEdmk-cs2yTZ9fYf4GIA_i1FyscklV7zwAfLKMylaBwyMQ_CKlz2EtH17nqeOi2NPQrDVcmCBMjwa9lM509DFk7F3nw3EDRw62Dn7s9gXmwsbnLjp8dt8GkpdlDmp8FpiP4-4JxaaQ',
+  heroFamily: '/images/splash-onboarding-family.png',
+  mapPreview: '/images/map-baybay.svg',
+  bcich: '/images/bcich.png',
+  cho: '/images/cho.png',
+  bcmddc: '/images/bcmddc.svg',
+  kidzklinika: '/images/kidzklinika.svg',
+  familyCare: '/images/family-care.svg',
 };
 
 export const INITIAL_FACILITIES: HealthcareFacility[] = [

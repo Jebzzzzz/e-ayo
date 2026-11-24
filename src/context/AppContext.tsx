@@ -247,8 +247,8 @@ const INITIAL_APPOINTMENTS: AppointmentRecord[] = [
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
 
-const STORAGE_KEY_APTS = 'eayo_stitch_appointments_v2';
-const STORAGE_KEY_FACILITIES = 'eayo_stitch_facilities_v2';
+const STORAGE_KEY_APTS = 'eayo_stitch_appointments_v4';
+const STORAGE_KEY_FACILITIES = 'eayo_stitch_facilities_v4';
 
 export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [activePage, setActivePageState] = useState<PageView>('home');

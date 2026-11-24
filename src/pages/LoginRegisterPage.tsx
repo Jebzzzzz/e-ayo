@@ -121,19 +121,19 @@ export const LoginRegisterPage: React.FC = () => {
       </header>
 
       <main className="flex-1 max-w-md lg:max-w-5xl w-full mx-auto px-gutter-md lg:px-6 py-6 lg:py-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-        {/* Left 6 Cols (Desktop Only): Welcome Illustration */}
-        <div className="hidden lg:flex lg:col-span-6 flex-col gap-4">
+        {/* Left 6 Cols: Welcome Illustration */}
+        <div className="lg:col-span-6 flex flex-col gap-4">
           <div className="rounded-xl overflow-hidden bg-surface-container-high border border-outline p-3 shadow-2xs">
             <img
               src={STITCH_IMAGES.heroFamily}
               alt="Friendly Baybay City healthcare worker welcoming a local family"
-              className="w-full h-72 object-cover rounded-lg"
+              className="w-full h-60 lg:h-72 object-contain bg-[#FAF2E7] rounded-lg"
             />
           </div>
-          <h1 className="font-headline text-headline-lg text-on-surface text-balance">
+          <h1 className="font-headline text-headline-md lg:text-headline-lg text-on-surface text-balance">
             Your Health, Within Your City.
           </h1>
-          <p className="font-body text-body-lg text-on-surface-variant text-pretty">
+          <p className="font-body text-body-md lg:text-body-lg text-on-surface-variant text-pretty">
             Log in as a Baybay City resident to manage appointments, or as a healthcare provider to
             confirm patient schedules.
           </p>

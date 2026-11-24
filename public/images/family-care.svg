@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" fill="none">
+  <rect width="600" height="360" fill="#FAF3E0"/>
+  <circle cx="95" cy="75" r="32" fill="#FFDFC3"/>
+  <rect y="295" width="600" height="65" fill="#E6C9B8"/>
+  <!-- Family Care & Maternity Clinic Building -->
+  <rect x="125" y="100" width="350" height="195" rx="16" fill="#FFF9EE" stroke="#3B2A26" stroke-width="4"/>
+  <path d="M110 105 L300 45 L490 105 Z" fill="#FBA2AB" stroke="#3B2A26" stroke-width="4" stroke-linejoin="round"/>
+  <rect x="180" y="105" width="240" height="36" rx="8" fill="#FFDFC3" stroke="#3B2A26" stroke-width="3"/>
+  <text x="300" y="129" text-anchor="middle" font-family="Poppins, sans-serif" font-weight="700" font-size="15" fill="#3B2A26">BAYBAY FAMILY CARE</text>
+  <!-- Windows & Entrance -->
+  <rect x="160" y="165" width="75" height="65" rx="10" fill="#FFDFC3" stroke="#3B2A26" stroke-width="3"/>
+  <rect x="365" y="165" width="75" height="65" rx="10" fill="#FFDFC3" stroke="#3B2A26" stroke-width="3"/>
+  <rect x="265" y="190" width="70" height="105" rx="10" fill="#FEA38E" stroke="#3B2A26" stroke-width="4"/>
+</svg>
