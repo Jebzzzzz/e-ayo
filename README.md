@@ -5,6 +5,9 @@
 
 **E-Ayo** is a centralized, offline-ready Progressive Web Application (PWA) mockup connecting residents across all barangays of **Baybay City, Leyte, Philippines (6521)** with verified local public hospitals, city health centers, diagnostic & dialysis laboratories, birthing clinics, and private medical providers.
 
+> **Presenting or Demonstrating this Mockup?**  
+> Read the **[Owner's Presentation & Feature Discussion Guide (PRESENTATION_GUIDE.md)](./PRESENTATION_GUIDE.md)** for a 30-second elevator pitch, design system justification, screen-by-screen talking points for all 11 screens, a 3-minute live demo script, and Q&A defense answers.
+
 ---
 
 ## 1. Stitch Design System (`E-Ayo Baybay Healthcare`)
