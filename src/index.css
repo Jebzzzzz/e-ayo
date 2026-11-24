@@ -1,0 +1,224 @@
+@import "tailwindcss";
+
+@theme {
+  /* E-Ayo Baybay Healthcare Stitch Design System Palette */
+  --color-primary: #FEA38E;
+  --color-on-primary: #3B2A26;
+  --color-primary-deep: #E8735A;
+  --color-on-primary-deep: #3B2A26;
+  --color-secondary: #FFDFC3;
+  --color-on-secondary: #3B2A26;
+  --color-tertiary: #FBA2AB;
+  --color-on-tertiary: #3B2A26;
+  --color-surface: #F5EBD0;
+  --color-on-surface: #3B2A26;
+  --color-on-surface-variant: #7A625B;
+  --color-surface-container-low: #FAF3E0;
+  --color-surface-container: #FFDFC3;
+  --color-surface-container-high: #FFF9EE;
+  --color-outline: #F3B5A0;
+  --color-outline-variant: #E6C9B8;
+
+  /* Reserved Appointment Status Tokens */
+  --color-status-pending-bg: #FEF3C7;
+  --color-status-pending-text: #92400E;
+  --color-status-confirmed-bg: #DCFCE7;
+  --color-status-confirmed-text: #166534;
+  --color-status-completed-bg: #E2E8F0;
+  --color-status-completed-text: #334155;
+  --color-status-cancelled-bg: #FEE2E2;
+  --color-status-cancelled-text: #991B1B;
+
+  /* Stitch Font Families */
+  --font-display: "Poppins", sans-serif;
+  --font-headline: "Poppins", sans-serif;
+  --font-title: "Poppins", sans-serif;
+  --font-body: "Nunito", sans-serif;
+  --font-label: "Poppins", sans-serif;
+  --font-mono: "Source Code Pro", monospace;
+
+  /* Stitch Corner Radii */
+  --radius-sm: 8px;
+  --radius-DEFAULT: 12px;
+  --radius-md: 16px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 9999px;
+
+  /* Stitch Spacing Scale */
+  --spacing-gutter-xs: 4px;
+  --spacing-gutter-sm: 8px;
+  --spacing-gutter-md: 16px;
+  --spacing-gutter-lg: 24px;
+  --spacing-gutter-xl: 32px;
+  --spacing-section: 32px;
+  --spacing-page-margin: 16px;
+
+  /* Stitch Motion Tokens */
+  --duration-state-change: 150ms;
+  --duration-surface-enter: 250ms;
+  --duration-surface-exit: 150ms;
+  --ease-state-change: ease-out;
+  --ease-surface-enter: cubic-bezier(0.2, 0, 0, 1);
+  --ease-surface-exit: cubic-bezier(0.3, 0, 1, 1);
+}
+
+:root {
+  color-scheme: light;
+  accent-color: #FEA38E;
+  scrollbar-color: #E8735A #FAF3E0;
+  scrollbar-width: thin;
+}
+
+@layer base {
+  body {
+    font-family: "Nunito", system-ui, -apple-system, sans-serif;
+    background-color: #F5EBD0;
+    color: #3B2A26;
+    font-size: 16px;
+    line-height: 24px;
+    text-wrap: pretty;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: "Poppins", system-ui, -apple-system, sans-serif;
+    text-wrap: balance;
+  }
+
+  :focus-visible {
+    outline: 2px solid #3B2A26;
+    outline-offset: 2px;
+  }
+}
+
+/* Material Symbols Outlined Helper */
+.material-symbols-outlined {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  line-height: 1 !important;
+  box-sizing: content-box;
+  overflow: hidden;
+  white-space: nowrap;
+  direction: ltr;
+  vertical-align: middle;
+  user-select: none;
+}
+
+.material-symbols-filled {
+  font-variation-settings: "FILL" 1, "wght" 500, "GRAD" 0, "opsz" 24;
+}
+
+/* Stitch Typography Token Utilities */
+.text-display-lg {
+  font-size: 36px;
+  line-height: 44px;
+  letter-spacing: -0.5px;
+  font-weight: 700;
+}
+
+.text-display-lg-mobile {
+  font-size: 28px;
+  line-height: 36px;
+  letter-spacing: -0.25px;
+  font-weight: 700;
+}
+
+.text-headline-lg {
+  font-size: 32px;
+  line-height: 40px;
+  letter-spacing: -0.25px;
+  font-weight: 700;
+}
+
+.text-headline-md {
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 0px;
+  font-weight: 600;
+}
+
+.text-headline-sm {
+  font-size: 20px;
+  line-height: 28px;
+  letter-spacing: 0px;
+  font-weight: 600;
+}
+
+.text-title-md {
+  font-size: 18px;
+  line-height: 26px;
+  letter-spacing: 0px;
+  font-weight: 600;
+}
+
+.text-body-lg {
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0px;
+  font-weight: 500;
+}
+
+.text-body-md {
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0px;
+  font-weight: 500;
+}
+
+.text-label-lg {
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 0px;
+  font-weight: 600;
+}
+
+.text-label-md {
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+  font-weight: 600;
+}
+
+.text-label-sm {
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.2px;
+  font-weight: 600;
+}
+
+.text-mono-md {
+  font-size: 15px;
+  line-height: 22px;
+  letter-spacing: 0.25px;
+  font-weight: 600;
+}
+
+/* Stitch Default Border Radius Utility */
+.rounded-DEFAULT {
+  border-radius: 12px;
+}
+
+.duration-state-change {
+  transition-duration: 150ms;
+}
+
+.ease-state-change {
+  transition-timing-function: ease-out;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Respect Reduced Motion Preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
